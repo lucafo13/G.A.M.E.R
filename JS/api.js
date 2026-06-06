@@ -1,5 +1,4 @@
-const axios = require("axios")
-
+import axios from 'axios'
 
 const API = async () => {
     try{
@@ -16,3 +15,4 @@ const API = async () => {
     }   
 }
 API()
+
