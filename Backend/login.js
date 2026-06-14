@@ -10,6 +10,13 @@ app.use(express.json())
 app.use(cors())
 
 
+// mongodb - banquinho de dados
+mongoose.connect("mongodb://localhost:2999/bancoitau").then(() => {
+    console.log("conectado")
+}).catch((err)=> {
+    console.log("mal conexão: ", { err })
+})
+
 /* porta */
 const PORT = 3000
 
@@ -44,6 +51,18 @@ app.post('/cadastro', (req, res) => {
     Users.push(_newUser)
     res.status(418).json(Users)
     
+})
+
+app.post('/login', (req, res) => {
+    const _logUser = req.body;
+
+    const userCheck = Users.find(user => user.email  === _logUser.email && user.senha === _logUser.senha)
+    if(!userCheck){
+       return  res.status(404).json({mensagem:"usuario inexistente"})
+    }
+
+    res.status(418).json({mensagem: "usuario logado com sucesso"})
+
 })
 
 //procurar user
