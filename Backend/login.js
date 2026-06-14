@@ -1,7 +1,10 @@
 // imports | favor nao cutucar
 import express from 'express'
 import cors from 'cors'
-import mongoose from 'mongoose'
+import mongoose, { MongooseError } from 'mongoose'
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 
 // express e cors uses | tambem não encosta krlh
@@ -10,14 +13,45 @@ app.use(express.json())
 app.use(cors())
 
 
-// mongodb - banquinho de dados
-mongoose.connect("mongodb://localhost:2999/bancoitau").then(() => {
+// mongodb - banquinho de dados || nao faço ideia de como usar ent to vendo video aula de um canal chamado victor lima - eita gloria
+mongoose.Promise = global.Promise
+mongoose.connect("mongodb://localhost:27017/gamerBank").then(() => {
     console.log("conectado")
 }).catch((err)=> {
     console.log("mal conexão: ", { err })
 })
 
-/* porta */
+// tentando definir model
+
+const UserSchema = mongoose.Schema({
+    nome: {
+        type: String,
+        require: true
+    },
+    email: {
+        type: String,
+        require: true
+    },
+    senha: {
+        type: Number,
+        require: true
+    },
+    pais: {
+        type: String,
+        require: true
+    }
+})
+
+// tabelinha n chorax   x | tal da collectionsxxx
+const User = mongoose.model('Users', UserSchema)
+
+// new novoUser ({
+//     nome: "edelcio",
+//     email: "edelciomiguel@gmail.com",
+//     senha: 142536,
+//     pais: "Brasil"
+// }).save().then(() => {console.log("carinha cadastrado aura")}).catch((err) => {console.log("deu pau ", { err })})   
+/* porta || nao vou colocar 67*/
 const PORT = 3000
 
 /* codigo em si */
@@ -33,31 +67,46 @@ let Users = [{
 ]
 
 
-app.get('/Users', (req, res) => {
-    res.json(Users);
+app.get('/Users',  async (req, res) => {
+    try{
+    const users = await User.find()
+    res.json(users);
+    
+    }
+     catch(err){
+        res.status(418).json({mensagem:"erro"})
+     }
+
 })
 
 
 // novo user
-app.post('/cadastro', (req, res) => {
-    const _newUser = req.body
-    _newUser.id = Users.length + 1
+app.post('/cadastro', async (req, res) => {
+
+    // _newUser.id = Users.length + 1
     // usercheck
 
-    const userExistente = Users.find(user => user.email === _newUser.email)
+    const userExistente = await User.findOne({
+        email: req.body.email
+    })
     if(userExistente){
         return res.status(409).json({mensagem:"usuario ja existe!"})
     }
-    Users.push(_newUser)
-    res.status(418).json(Users)
+    const _newUser = await User.create(req.body)
+    const users = User.find()
+    // Users.push(_newUser)
+    res.status(418).json(users)
     
 })
 
-app.post('/login', (req, res) => {
+app.post('/login',  async (req, res) => {
     const _logUser = req.body;
-
-    const userCheck = Users.find(user => user.email  === _logUser.email && user.senha === _logUser.senha)
-    if(!userCheck){
+    const mongoCheck = await User.findOne({
+        email: _logUser.email,
+        senha: _logUser.senha
+    })
+    // const userCheck = Users.find(user => user.email  === _logUser.email && user.senha === _logUser.senha)
+    if(!mongoCheck){
        return  res.status(404).json({mensagem:"usuario inexistente"})
     }
 
@@ -73,12 +122,12 @@ app.get('/Users/seek', (req,res) => {
     res.json(findUser || res.status(410).json({mensagem: `user id ${id} nao encontrado` }))
     
 })
-app.get('/Users/:id', (req,res) => {
+app.get('/Users/:id', async (req,res) => {
     const id = req.params.id
-
-    const findUser = Users.find(user => user.id === Number(id))
-    res.json(findUser || res.status(418).json({mensagem: `user id ${id} nao encontrado` }))
-    
+    const userID = await User.findById(id)
+    // const findUser = Users.find(user => user.id === Number(id))
+    // res.json(findUser || res.status(418).json({mensagem: `user id ${id} nao encontrado` }))
+    res.status(418).json(userID)
 })
 
 app.patch('/Users/:id', (req,res) => {
