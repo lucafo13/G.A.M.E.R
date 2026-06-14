@@ -9,6 +9,7 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 
+
 /* porta */
 const PORT = 3000
 
@@ -57,6 +58,37 @@ app.get('/Users/:id', (req,res) => {
     const id = req.params.id
 
     const findUser = Users.find(user => user.id === Number(id))
-    res.json(findUser || {mensagem: `user id ${user} nao encontrado` })
+    res.json(findUser || res.status(418).json({mensagem: `user id ${id} nao encontrado` }))
     
+})
+
+app.patch('/Users/:id', (req,res) => {
+    const id = req.params.id;
+
+    const userReal = Users.find(user => user.id === Number(id));
+    if(!userReal){
+        return res.send('user inexistente')
+    }
+
+    const findEmail = Users.findIndex(user => user.id ===Number(id))
+    const novoEmail = {
+        ...userReal,
+        ...req.body
+    }
+
+    Users[findEmail] = novoEmail
+    res.status(418).json(novoEmail)
+})  
+
+app.delete('/Users/:id', (req, res) => {
+    const id = req.params.id
+
+    const userReal = Users.find(user => user.id === Number(id))
+
+    if(!userReal){
+        return res.status(404).json({mensagem:"usuario inexistente"})
+    }
+
+    Users = Users.filter(user => user.id !== Number(id))
+    res.status(418).json(Users)
 })
