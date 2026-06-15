@@ -149,14 +149,21 @@ app.patch('/Users/:id', (req,res) => {
 })  
 
 app.delete('/Users/:id', (req, res) => {
+    // const id = req.params.id
+
+    // const userReal = Users.find(user => user.id === Number(id))
+
+    // if(!userReal){
+    //     return res.status(404).json({mensagem:"usuario inexistente"})
+    // }
+
+    // Users = Users.filter(user => user.id !== Number(id))
+    // res.status(418).json(Users)
     const id = req.params.id
 
-    const userReal = Users.find(user => user.id === Number(id))
-
+    const userReal = User.findById(id)
     if(!userReal){
-        return res.status(404).json({mensagem:"usuario inexistente"})
+        return res.status(418).json({ mensagem: "Usuario inexistente"})
     }
-
-    Users = Users.filter(user => user.id !== Number(id))
-    res.status(418).json(Users)
+    const deleteUser = await User.cr
 })
