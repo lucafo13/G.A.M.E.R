@@ -1,8 +1,11 @@
 :root{
   --fundo: #a0a0a0;
   --white: #f0f0f0;
-  --font: 
+  --font-mono: '' 
 }
 main{
   display: flex;
+  flex-direction: line;
+  font-family: 'Jet';
+  
 }
