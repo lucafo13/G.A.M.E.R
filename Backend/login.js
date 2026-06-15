@@ -26,19 +26,19 @@ mongoose.connect("mongodb://localhost:27017/gamerBank").then(() => {
 const UserSchema = mongoose.Schema({
     nome: {
         type: String,
-        require: true
+        required: true
     },
     email: {
         type: String,
-        require: true
+        required: true
     },
     senha: {
         type: Number,
-        require: true
+        required: true
     },
     pais: {
         type: String,
-        require: true
+        required: true
     }
 })
 
@@ -59,12 +59,12 @@ app.listen(PORT, () => {
     console.log(`Rodando na porta ${PORT}`)
 })
 
-let Users = [{
-    id:1,
-    email: "teste@gmail.com", senha: 1234   },
-    {id:2,email: "odavilucas587@gmail.com", senha: 4321},
-    {id:3,email: "bandidoquer67resenha@gmail.com", senha: 5423}
-]
+// let Users = [{
+//     id:1,
+//     email: "teste@gmail.com", senha: 1234   },
+//     {id:2,email: "odavilucas587@gmail.com", senha: 4321},
+//     {id:3,email: "bandidoquer67resenha@gmail.com", senha: 5423}
+// ]
 
 
 app.get('/Users',  async (req, res) => {
