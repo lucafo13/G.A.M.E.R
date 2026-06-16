@@ -130,17 +130,18 @@ app.get('/Users/:id', async (req,res) => {
     res.status(418).json(userID)
 })
 
-app.patch('/Users/:id', (req,res) => {
+app.patch('/Users/:id', async (req,res) => {
     const id = req.params.id;
 
-    const userReal = Users.find(user => user.id === Number(id));
+    const userReal = User.findById(id);
     if(!userReal){
         return res.send('user inexistente')
     }
 
+    const findEmail2 = User.findByIdAndUpdate(id); 
     const findEmail = Users.findIndex(user => user.id ===Number(id))
     const novoEmail = {
-        ...userReal,
+        ...id,
         ...req.body
     }
 
@@ -148,7 +149,7 @@ app.patch('/Users/:id', (req,res) => {
     res.status(418).json(novoEmail)
 })  
 
-app.delete('/Users/:id', (req, res) => {
+app.delete('/Users/:id', async (req, res) => {
     // const id = req.params.id
 
     // const userReal = Users.find(user => user.id === Number(id))
@@ -165,5 +166,8 @@ app.delete('/Users/:id', (req, res) => {
     if(!userReal){
         return res.status(418).json({ mensagem: "Usuario inexistente"})
     }
-    const deleteUser = await User.cr
+    const deleteUser = await User.findByIdAndDelete(id)
+    const Users = User.find()
+
+    res.status(418).json({ mensagem: "Usuario deletado"}, Users)
 })
