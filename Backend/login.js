@@ -15,7 +15,7 @@ app.use(cors())
 
 // mongodb - banquinho de dados || nao faço ideia de como usar ent to vendo video aula de um canal chamado victor lima - eita gloria
 mongoose.Promise = global.Promise
-mongoose.connect("mongodb://localhost:27017/gamerBank").then(() => {
+mongoose.connect(process.env.MONGO).then(() => {
     console.log("conectado")
 }).catch((err)=> {
     console.log("mal conexão: ", { err })
@@ -31,9 +31,9 @@ const UserSchema = mongoose.Schema({
     email: {
         type: String,
         required: true
-    },
+    },  
     senha: {
-        type: Number,
+        type: String,
         required: true
     },
     pais: {
@@ -45,14 +45,7 @@ const UserSchema = mongoose.Schema({
 // tabelinha n chorax   x | tal da collectionsxxx
 const User = mongoose.model('Users', UserSchema)
 
-// new novoUser ({
-//     nome: "edelcio",
-//     email: "edelciomiguel@gmail.com",
-//     senha: 142536,
-//     pais: "Brasil"
-// }).save().then(() => {console.log("carinha cadastrado aura")}).catch((err) => {console.log("deu pau ", { err })})   
-/* porta || nao vou colocar 67*/
-const PORT = 3000
+const PORT = process.env.API
 
 /* codigo em si */
 app.listen(PORT, () => {
@@ -92,62 +85,62 @@ app.post('/cadastro', async (req, res) => {
     if(userExistente){
         return res.status(409).json({mensagem:"usuario ja existe!"})
     }
-    const _newUser = await User.create(req.body)
-    const users = User.find()
+    const _newUser = await User.create(req.body);
+    const users = await User.find()
     // Users.push(_newUser)
-    res.status(418).json(users)
+    res.status(201).json(users)
     
 })
 
 app.post('/login',  async (req, res) => {
-    const _logUser = req.body;
+    const { email, senha } = req.body;
     const mongoCheck = await User.findOne({
-        email: _logUser.email,
-        senha: _logUser.senha
+        email,
+        senha
     })
     // const userCheck = Users.find(user => user.email  === _logUser.email && user.senha === _logUser.senha)
     if(!mongoCheck){
        return  res.status(404).json({mensagem:"usuario inexistente"})
     }
 
-    res.status(418).json({mensagem: "usuario logado com sucesso"})
+    res.status(200).json({mensagem: "usuario logado com sucesso"})
+
 
 })
 
 //procurar user
-app.get('/Users/seek', (req,res) => {
-    const { id } = req.query
+// app.get('/Users/seek', (req,res) => {
+//     const { id } = req.query
 
-    const findUser = Users.find(user => user.id === Number(id))
-    res.json(findUser || res.status(410).json({mensagem: `user id ${id} nao encontrado` }))
+//     const findUser = Users.find(user => user.id === Number(id))
+//     res.json(findUser || res.status(410).json({mensagem: `user id ${id} nao encontrado` }))
     
-})
-app.get('/Users/:id', async (req,res) => {
-    const id = req.params.id
-    const userID = await User.findById(id)
-    // const findUser = Users.find(user => user.id === Number(id))
-    // res.json(findUser || res.status(418).json({mensagem: `user id ${id} nao encontrado` }))
-    res.status(418).json(userID)
-})
+// })
+// app.get('/Users/:id', async (req,res) => {
+//     const id = req.params.id
+//     const userID = await User.findById(id)
+//     // const findUser = Users.find(user => user.id === Number(id))
+//     // res.json(findUser || res.status(418).json({mensagem: `user id ${id} nao encontrado` }))
+//     res.status(418).json(userID)
+// })
 
 app.patch('/Users/:id', async (req,res) => {
+try{    
     const id = req.params.id;
 
-    const userReal = User.findById(id);
-    if(!userReal){
-        return res.send('user inexistente')
-    }
+    const findUpdate = await User.findByIdAndUpdate(id, req.body, {new: true})
 
-    const findEmail2 = User.findByIdAndUpdate(id); 
-    const findEmail = Users.findIndex(user => user.id ===Number(id))
-    const novoEmail = {
-        ...id,
-        ...req.body
-    }
+    if(!findUpdate){
+      return  res.status(404).json({mensagem:"Usuario não encontrado"})
+    } 
 
-    Users[findEmail] = novoEmail
-    res.status(418).json(novoEmail)
-})  
+    res.json(findUpdate)
+}
+catch(err){
+    res.status(418).json({mensagem: "falha interna!!!"})
+};
+   
+
 
 app.delete('/Users/:id', async (req, res) => {
     // const id = req.params.id
@@ -167,7 +160,7 @@ app.delete('/Users/:id', async (req, res) => {
         return res.status(418).json({ mensagem: "Usuario inexistente"})
     }
     const deleteUser = await User.findByIdAndDelete(id)
-    const Users = User.find()
+    const Users = await User.find()
 
-    res.status(418).json({ mensagem: "Usuario deletado"}, Users)
-})
+    res.status(200).json({ mensagem: "Usuario deletado"}, Users)
+})})

@@ -26,7 +26,7 @@ main{
   background-color: var(--white);
   height: 100vh;
   width: 50vw;
-  border-radius: 20px 20px 0px 0px;
+  border-radius: 20px ;
   padding: 1rem;
   right: 0;
   color: black; 
@@ -69,12 +69,13 @@ main{
   transform: translateY(-5px) scale(1.07);
 }
 .btn-custom:active{
- transform: scale(0.95);
+ transform: scale(0.9 5);
 }
 input{
   border: transparent;
   padding: 10px;
-  width: 250px;
+  transition: .5s;  
+  width: 300px;
 }
 .login{
   display: flex;
@@ -83,4 +84,60 @@ input{
   align-items: center;
   justify-content: center;
 
+}
+.login h2{
+  color: gray;
+  font-family: 'Montserrat', sans-serif;
+}
+form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.btn-cad{
+  background-color: #000;
+  color: white;
+  font-weight: bold;
+  border-radius: 20px;
+  transition: .5s;
+}
+.btn-cad:hover{
+  transform: translateY(-5px) scale(1.07);
+}
+.btn-cad:active{
+ transform: scale(0.95);
+}
+.login select{
+  width: 300px;
+  padding: 10px;
+  border: transparent;
+
+}
+
+.caixaput{
+  display: flex;
+  background-color: white;
+  gap: 1rem;
+  align-items: center;
+  padding: 5px;
+  transition: .5s;
+  justify-content: center;
+}
+.caixaput i{
+  font-size: 1.5rem;
+  color: gray;
+  background-color: transparent;
+}
+.caixaput:hover{
+  transform: translateY(-5px) scale(1.07);
+}
+.caixaput:hover i{
+  color: black;
+}
+.caixaput:hover input:focus{
+  outline: none;
+  border: none;
+  width: 400px;
 }

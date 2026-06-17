@@ -1,11 +1,4 @@
-import axios from "axios";
 
-
-
-const App = async () => {
-  const { data } = await axios.get("http://localhost:3000/Users")
-  
-}
 const select = document.getElementById("option")
 const paises = [
   "Afeganistão",
@@ -60,27 +53,12 @@ const paises = [
   "Uruguai"
 ] 
 
-paises.forEach(pais => {
-  select.innerHTML += `<option value="${pais}">${pais}</option>`
-});
+const options = paises.map(pais => `<option value="${pais}">${pais}</option>`).join('')
+select.innerHTML += options
 
-const nome = document.getElementById("input-name").value
-const email = document.getElementById("input-email").value
-const senha = document.getElementById("input-pass").value
-const pais = document.getElementById("input-pais").value
+const log = document.getElementById("log")
 
-const cadastro = async () => {
-  try{  const cad = await axios.post("http://localhost:3000/cadastro", {
-    nome,
-    email,
-    senha,
-    pais,
-    
-  })
-    console.log("cadastro feito pabens", cad.data)
-    alert("cadastro concluido!!!")
-  }
-  catch( error ){
-    console.log(`Erro no axios caraio: ${error}`)
-  }
-}
+log.addEventListener("click", () => {
+  
+    window.location.href = "loginn.html"
+})
