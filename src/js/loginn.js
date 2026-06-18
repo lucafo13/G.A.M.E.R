@@ -11,18 +11,19 @@
             senha
         })
 
-        console.log(res)
+        console.log(res.data)
         alert("user logado")
 
-       
+        const nome = localStorage.setItem("nome", res.data.nome)
+
+       window.location.href = '../index.html'
         }
 
         catch ( error ){
             console.log({error})
             alert("email ou senha incorretos")
         }
-        email = ''
-        senha = ''
+   
 
     } 
     const cadog = document.getElementById("log-btnx")

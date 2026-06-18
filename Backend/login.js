@@ -71,6 +71,24 @@ app.get('/Users',  async (req, res) => {
      }
 
 })
+app.get('/Users/:email', async (req, res) => {
+    try{
+        const emailUser = req.params.email
+
+        const userMail = await User.findOne({
+            email: emailUser
+        })
+
+        if(!userMail){
+            res.status(404).json({ mensagem: "não encontrado!"})
+        }
+
+        res.json({userMail})
+    }
+    catch(err){
+
+    }
+})
 
 
 // novo user
@@ -103,7 +121,7 @@ app.post('/login',  async (req, res) => {
        return  res.status(404).json({mensagem:"usuario inexistente"})
     }
 
-    res.status(200).json({mensagem: "usuario logado com sucesso"})
+    res.status(200).json({mensagem: "usuario logado com sucesso", nome: mongoCheck.nome})
 
 
 })
@@ -124,17 +142,17 @@ app.post('/login',  async (req, res) => {
 //     res.status(418).json(userID)
 // })
 
-app.patch('/Users/:id', async (req,res) => {
+app.patch('/rec', async (req,res) => {
 try{    
-    const id = req.params.id;
+    const { email, Nsenha } = req.body
 
-    const findUpdate = await User.findByIdAndUpdate(id, req.body, {new: true})
+    const findUpdate = await User.findOneAndUpdate({ email } , { senha: Nsenha }, {new: true})
 
     if(!findUpdate){
       return  res.status(404).json({mensagem:"Usuario não encontrado"})
     } 
 
-    res.json(findUpdate)
+    res.status(201).json(findUpdate)
 }
 catch(err){
     res.status(418).json({mensagem: "falha interna!!!"})

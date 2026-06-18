@@ -57,8 +57,11 @@ const options = paises.map(pais => `<option value="${pais}">${pais}</option>`).j
 select.innerHTML += options
 
 const log = document.getElementById("log")
-
+const passForget = document.querySelector(".passForget")
 log.addEventListener("click", () => {
   
     window.location.href = "loginn.html"
+})
+passForget.addEventListener("click", () => {
+    window.location.href = "subpages/passForget.html"
 })
