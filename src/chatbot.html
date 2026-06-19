@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline'; connect-src 'self' https://generativelanguage.googleapis.com;">
+    <title>G.A.M.E.R. | Technobot Teste</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="chat-wrapper">
+        <aside class="sidebar">
+            <div class="brand">
+                <span class="logo-dot"></span>
+                <h1>G.A.M.E.R.</h1>
+                <p class="subtitle">Technologies</p>
+            </div>
+            
+            <nav class="menu">
+                <div class="menu-item active">
+                    <span class="icon">🤖</span>
+                    <span>Technobot AI</span>
+                </div>
+                <div class="menu-item disabled">
+                    <span class="icon">📊</span>
+                    <span>Data Analytics</span>
+                </div>
+                <div class="menu-item disabled">
+                    <span class="icon">⚙️</span>
+                    <span>ERP Integrado</span>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <span class="status-indicator online"></span>
+                <span class="status-text">API Conectada</span>
+            </div>
+        </aside>
+
+        <main class="chat-container">
+            <header class="chat-header">
+                <div class="header-info">
+                    <h2>Technobot</h2>
+                    <p>Assistente Virtual Corporativo • B2B</p>
+                </div>
+                <div class="system-badge">v1.5-flash</div>
+            </header>
+
+            <div class="chat-box" id="chatBox">
+                <div class="message-row bot">
+                    <div class="avatar">AI</div>
+                    <div class="message-bubble">
+                        Olá! Eu sou o <strong>Technobot</strong>, o assistente virtual da International G.A.M.E.R. Como posso auxiliar a sua empresa em tomadas de decisões, análise de lucros ou modernização de sistemas hoje?
+                    </div>
+                </div>
+            </div>
+
+            <form class="chat-input-area" id="chatForm">
+                <input 
+                    type="text" 
+                    id="userInput" 
+                    placeholder="Pergunte sobre automação, lucros, ERP ou produtividade..." 
+                    autocomplete="off"
+                    required
+                >
+                <button type="submit" id="sendBtn">
+                    <span class="btn-text">Enviar</span>
+                    <span class="btn-icon">→</span>
+                </button>
+            </form>
+        </main>
+    </div>
+    <script type="module" src="./chatbot.js"></script>
+    <script type="module">
+       import { enviarMensagemAoBot } from './chatbot.js';
+
+        const chatForm = document.getElementById('chatForm');
+        const userInput = document.getElementById('userInput');
+        const chatBox = document.getElementById('chatBox');
+
+        function adicionarMensagem(texto, remetente) {
+            const row = document.createElement('div');
+            row.classList.add('message-row', remetente);
+
+            const avatar = document.createElement('div');
+            avatar.classList.add('avatar');
+            avatar.innerText = remetente === 'bot' ? 'AI' : 'VC';
+
+            const bubble = document.createElement('div');
+            bubble.classList.add('message-bubble');
+            bubble.innerText = texto;
+
+            row.appendChild(avatar);
+            row.appendChild(bubble);
+            chatBox.appendChild(row);
+
+            // Scroll automático para a última mensagem
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        chatForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const mensagem = userInput.value.trim();
+            if (!mensagem) return;
+
+            // 1. Limpa o input e joga a mensagem do usuário na tela
+            userInput.value = '';
+            adicionarMensagem(mensagem, 'user');
+
+            // 2. Cria um balão de "digitando..." temporário
+            const rowLoading = document.createElement('div');
+            rowLoading.classList.add('message-row', 'bot', 'loading-row');
+            rowLoading.innerHTML = '<div class="avatar">AI</div><div class="message-bubble typing">Digitando...</div>';
+            chatBox.appendChild(rowLoading);
+            chatBox.scrollTop = chatBox.scrollHeight;
+
+            // 3. Chama a API do Gemini configurada no bot.js
+            const resposta = await enviarMensagemAoBot(mensagem);
+
+            // 4. Remove o "digitando..." e adiciona a resposta real
+            rowLoading.remove();
+            adicionarMensagem(resposta, 'bot');
+        });
+    </script>
+</body>
+</html>
