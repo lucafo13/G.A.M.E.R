@@ -121,7 +121,7 @@ app.post('/login',  async (req, res) => {
        return  res.status(404).json({mensagem:"usuario inexistente"})
     }
 
-    res.status(200).json({mensagem: "usuario logado com sucesso", nome: mongoCheck.nome})
+    res.status(200).json({mensagem: "usuario logado com sucesso", nome: mongoCheck.nome, email: mongoCheck.email, senha: mongoCheck.senha})
 
 
 })
