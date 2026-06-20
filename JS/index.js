@@ -10,4 +10,11 @@ login.addEventListener('click', () => {
 })
 const nome = localStorage.getItem("nome")
 
+if(!nome){
+    document.getElementById('name').textContent = "Fazer Login"
+} else{
 document.getElementById('name').textContent = nome
+}
+
+// effect
+

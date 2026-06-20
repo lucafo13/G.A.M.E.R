@@ -489,3 +489,8 @@ body {
 .btn-icon {
     margin-left: 6px;
 }
+.tecno{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
