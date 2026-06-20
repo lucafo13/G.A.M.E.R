@@ -1,10 +1,12 @@
 *{
     color: white;
 }
-body{
+body {
     margin: 0;
     padding: 0;
     background-color: #000 !important; 
+    overflow-y: scroll; 
+    box-sizing: border-box;
 }
 nav{
     display:flex;
@@ -237,6 +239,7 @@ li a{
     color: black;
     border: 2px solid white;
 }
+
 .effect::after{
         position: absolute;
     width: 100%;
@@ -247,4 +250,11 @@ li a{
     bottom: -5px;
     color: white;
     transition: .5s;
+
+}
+nav {
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    padding: 10px !important;
+
 }
