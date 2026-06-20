@@ -1,0 +1,76 @@
+/*aqui tem so bglh do chat*/
+
+.chatbot-scope {
+    margin-top: 80px; 
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 80px); 
+    width: 100%;
+    padding: 20px 40px;
+    background-color: #000;
+}
+
+.chat-box {
+    flex-grow: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.message-row {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+.message-row.user {
+    flex-direction: row-reverse;
+}
+
+.avatar {
+    font-size: 24px;
+    color: white;
+}
+
+.message-bubble {
+    background: #151515;
+    padding: 15px 20px;
+    border-radius: 15px;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    max-width: 70%;
+}
+
+.chat-input-area {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+.chat-input-area input {
+    flex-grow: 1;
+    background: #151515;
+    border: 1px solid #333;
+    padding: 15px;
+    border-radius: 10px;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.chat-input-area button {
+    background: white;
+    color: black;
+    border: none;
+    padding: 0 25px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.foto-bot {
+    width: 60px;         
+    height: 60px;        
+    border-radius: 50%;  
+    object-fit: cover;   
+}

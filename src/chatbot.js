@@ -16,7 +16,7 @@ Diretrizes de resposta:
 - Se perguntarem algo fora do escopo empresarial ou da G.A.M.E.R, responda educadamente que seu foco exclusivo é a gestão e modernização corporativa.
 `;
 
-export async function enviarMensagemAoBot(mensagemDoUsuario) {const url = `https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
+export async function enviarMensagemAoBot(mensagemDoUsuario) {const url = `https://generativelanguage.googleapis.com/v1/models/gemini-3.1-flash-lite:generateContent?key=${apiKey}`;
 
     try {
         const response = await fetch(url, {
