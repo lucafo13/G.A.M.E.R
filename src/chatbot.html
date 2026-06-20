@@ -3,77 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline'; connect-src 'self' https://generativelanguage.googleapis.com;">
-    <title>G.A.M.E.R. | Technobot Teste</title>
-    <link rel="stylesheet" href="style.css">
+    <title>G.A.M.E.R - ChatBot</title>
+    <link rel="manifest" href="manifest.json">
+    
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/chatbot.css">
+    <link rel="shortcut icon" href="assets/icones/auradelcio.png" type="image/x-icon">
+    
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="JS/index.js" defer></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/14.8.1/math.js" integrity="sha512-AJmFmOXFAAzxbzp498VFGf+/Ke7n/O/Pz7L7R2in/4lEDkqhFvuIemyJo/MzXORunJkrJngeIyaWqLAj2rTY2Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
+    <nav>
+      <div class="imgnav">
+        <img src="assets/icones/auradelcio.png" alt="Logo">
+      </div>
+      <ul class="op">
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="analises/analises.html">Analises</a></li>
+          <li><a class="effect" href="chatbot.html">ChatBot</a></li>
+          <li><a href="#sobre">sobre</a></li>
+          <li><a href="#contato">Contato</a></li>
+          <li><a href="" id="name"></a></li>
+      </ul>
+      <div class="login">
+        <button id="login">Login</button>
+      </div>
+    </nav>
 
-    <div class="chat-wrapper">
-        <aside class="sidebar">
-            <div class="brand">
-                <span class="logo-dot"></span>
-                <h1>G.A.M.E.R.</h1>
-                <p class="subtitle">Technologies</p>
-            </div>
-            
-            <nav class="menu">
-                <div class="menu-item active">
-                    <span class="icon">🤖</span>
-                    <span>Technobot AI</span>
-                </div>
-                <div class="menu-item disabled">
-                    <span class="icon">📊</span>
-                    <span>Data Analytics</span>
-                </div>
-                <div class="menu-item disabled">
-                    <span class="icon">⚙️</span>
-                    <span>ERP Integrado</span>
-                </div>
-            </nav>
-
-            <div class="sidebar-footer">
-                <span class="status-indicator online"></span>
-                <span class="status-text">API Conectada</span>
-            </div>
-        </aside>
-
-        <main class="chat-container">
-            <header class="chat-header">
-                <div class="header-info">
-                    <h2>Technobot</h2>
-                    <p>Assistente Virtual Corporativo • B2B</p>
-                </div>
-                <div class="system-badge">v1.5-flash</div>
-            </header>
-
-            <div class="chat-box" id="chatBox">
-                <div class="message-row bot">
-                    <div class="avatar"><img src="../assets/icones/auradelciofinal.png" class="tecno" alt=""></div>
-                    <div class="message-bubble">
-                        Olá! Eu sou o <strong>Technobot</strong>, o assistente virtual da International G.A.M.E.R. Como posso auxiliar a sua empresa em tomadas de decisões, análise de lucros ou modernização de sistemas hoje?
-                    </div>
-                </div>
-            </div>
-
-            <form class="chat-input-area" id="chatForm">
-                <input 
-                    type="text" 
-                    id="userInput" 
-                    placeholder="Pergunte sobre automação, lucros, ERP ou produtividade..." 
-                    autocomplete="off"
-                    required
-                >
-                <button type="submit" id="sendBtn">
-                    <span class="btn-text">Enviar</span>
-                    <span class="btn-icon">→</span>
-                </button>
-            </form>
-        </main>
+    <div class="chatbot-scope">
+        <div id="chatBox" class="chat-box"></div>
+        
+        <form class="chat-input-area" id="chatForm">
+            <input type="text" id="userInput" placeholder="Digite sua dúvida..." required>
+            <button type="submit"><i class="bi bi-send-fill"></i></button>
+        </form>
     </div>
-    <script type="module" src="./chatbot.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module" src="/src/main.js"></script>
+
     <script type="module">
-       import { enviarMensagemAoBot } from './chatbot.js';
+        import { enviarMensagemAoBot } from './chatbot.js';
 
         const chatForm = document.getElementById('chatForm');
         const userInput = document.getElementById('userInput');
@@ -85,17 +64,22 @@
 
             const avatar = document.createElement('div');
             avatar.classList.add('avatar');
-            avatar.innerText = remetente === 'bot' ? 'AI' : 'VC';
-
+            
+            // FOTO DO BOT APLICADA AQUI
+            avatar.innerHTML = remetente === 'bot' 
+                ? '<img src="../assets/icones/perfilbot.png" class="foto-bot">' 
+                : '<i class="bi bi-person-fill"></i>';
+            
             const bubble = document.createElement('div');
-            bubble.classList.add('message-bubble');
-            bubble.innerText = texto;
+            bubble.classList.add('message-bubbleuser');
+            
+            // Formata negrito
+            bubble.innerHTML = texto.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
 
             row.appendChild(avatar);
             row.appendChild(bubble);
             chatBox.appendChild(row);
 
-            // Scroll automático para a última mensagem
             chatBox.scrollTop = chatBox.scrollHeight;
         }
 
@@ -104,24 +88,32 @@
             const mensagem = userInput.value.trim();
             if (!mensagem) return;
 
-            // 1. Limpa o input e joga a mensagem do usuário na tela
+            userInput.disabled = true;
             userInput.value = '';
+            
             adicionarMensagem(mensagem, 'user');
 
-            // 2. Cria um balão de "digitando..." temporário
             const rowLoading = document.createElement('div');
             rowLoading.classList.add('message-row', 'bot', 'loading-row');
-            rowLoading.innerHTML = '<div class="avatar">AI</div><div class="message-bubble typing">Digitando...</div>';
+            
+            // FOTO DO BOT NO LOADING TAMBÉM
+            rowLoading.innerHTML = '<div class="avatar"><img src="../assets/icones/auradelcio.png" class="foto-bot"></div><div class="message-bubble typing">Acessando base de dados da G.A.M.E.R...</div>';
+            
             chatBox.appendChild(rowLoading);
             chatBox.scrollTop = chatBox.scrollHeight;
 
-            // 3. Chama a API do Gemini configurada no bot.js
-            const resposta = await enviarMensagemAoBot(mensagem);
-
-            // 4. Remove o "digitando..." e adiciona a resposta real
-            rowLoading.remove();
-            adicionarMensagem(resposta, 'bot');
+            try {
+                const resposta = await enviarMensagemAoBot(mensagem);
+                rowLoading.remove();
+                adicionarMensagem(resposta, 'bot');
+            } catch (error) {
+                rowLoading.remove();
+                adicionarMensagem("Ocorreu uma falha de conexão. Tente novamente.", 'bot');
+            } finally {
+                userInput.disabled = false;
+                userInput.focus();
+            }
         });
-    </script>
+    </script> 
 </body>
 </html>

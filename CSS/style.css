@@ -20,7 +20,6 @@ nav{
     left: 0;
     width: 100%;
     padding: 10px;  
-    z-index: 999;
     
 
 }
@@ -240,6 +239,13 @@ li a{
     border: 2px solid white;
 }
 
+nav {
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    padding: 10px !important;
+    z-index: 999;
+}   
+
 .effect::after{
         position: absolute;
     width: 100%;
@@ -250,11 +256,4 @@ li a{
     bottom: -5px;
     color: white;
     transition: .5s;
-
-}
-nav {
-    box-sizing: border-box !important;
-    margin: 0 !important;
-    padding: 10px !important;
-
 }

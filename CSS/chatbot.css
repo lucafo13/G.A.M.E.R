@@ -27,6 +27,7 @@
 
 .message-row.user {
     flex-direction: row-reverse;
+    
 }
 
 .avatar {
@@ -42,6 +43,15 @@
     font-family: 'Montserrat', sans-serif;
     max-width: 70%;
 }
+.message-bubbleuser {
+    background: #8B5CF6;
+    padding: 15px 20px;
+    border-radius: 15px;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    max-width: 70%;
+}
+
 
 .chat-input-area {
     display: flex;

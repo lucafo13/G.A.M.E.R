@@ -1,6 +1,6 @@
 import chart, { Chart } from 'chart.js/auto';
 
-
+const irPra = window.location.href
 const graf = document.getElementById('MyGrafi')
 const conv = document.getElementById('conv')
 
@@ -42,4 +42,7 @@ bt.addEventListener('click', () => {
 
     charte.update()
 
+})
+document.getElementById('fec').addEventListener('click', () => {
+    window.location.href = '#'
 })
