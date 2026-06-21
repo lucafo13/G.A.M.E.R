@@ -215,6 +215,21 @@ main{
 .carde:hover{
     transform: scale(1.067);
 }
+
+.carde span{
+    font-family: var(--monserrat);
+    font-size: 25px;
+    font-weight: bold;
+}
+#reSpan{
+    color: white;
+}
+#gSpan{
+    color: red;
+}
+#lSpan{
+    color: green;
+}
 .contgrafi{
     margin-top: 30px;
     width: 800px !important;
@@ -228,7 +243,8 @@ main{
     opacity: 90%;
     position: fixed;
     width: 700px;
-    height: 300px;
+
+    min-height: auto;
     border: 1px solid white;
     border-radius: 20px;
 
@@ -254,18 +270,39 @@ main{
     margin: 0 auto;
     padding: 25px;
     width: 100%;
+    gap: 20px;
     height: 100%;
-
+    position: relative;
 }
 .pop div input{
-    width: 250px;
-    height: 55px;
-    border-radius: 20px;
-    background-color: #171717;
-    transition: .5s;
+
+    background:#0f0f0f;
+    border:none;
+    border-left:4px solid #fff;
+    color:white;
+    padding:15px;
+    transition: .5s Im !important ;
+    font-family:'Orbitron';
+
 }
 .pop div input:focus{
-    width: 310px;
+    width: 400px;
+}
+.pop div input:hover{
+    transform: scale(1.1);
+}
+select{
+    color: white;
+    background: transparent;
+    width: 250px;
+    height: 50px;
+    font-family: var(--monserrat);
+    border-radius: 7px;
+    transition: .5s;
+
+}
+select:focus{
+    width: 350px;
 }
 #b, .b{
         background-color: transparent;

@@ -8,16 +8,29 @@ conv.addEventListener('click', () => {
     window.location.href = 'analises.html#pop'
 })
 const valores = []
+const receita = []
+const lucro = []
 const charte =
 new Chart(graf, {
     type: 'line',
     data: {
-        labels: ['venda 1', 'venda 2', 'venda 3', 'venda 4  '],
+        labels: ['Comparação 1'],
         datasets: [{
-            label: "Resumo de vendas",
+            label: "Gastos",
             data: valores,
             borderWidth: 1,
-            borderColor: '#fff'
+            borderColor: '#ce1414',
+        },
+        {
+            label: "Receita",
+            data: receita,
+            borderWidth: 1,
+            borderColor: '#fff',
+        },{
+            label: "Lucro",
+            data: lucro,
+            borderWidth: 1,
+            borderColor: '#3ac41b'
         }]
     },
     options: {
@@ -32,14 +45,28 @@ new Chart(graf, {
 
 });
 const bt = document.getElementById('b')
+
 bt.addEventListener('click', () => {
+    const grafe = document.getElementById('selecte').value
+const inceita = document.getElementById('receita').value
+const instos = document.getElementById('gastos').value
+    const gasto =
+        Number(document.querySelector('#gastos').value)
+    charte.config.type = grafe  
+    valores.push(gasto)
+    receita.push(Number(inceita))
+    lucro.push(Number(inceita - gasto))
+    charte.data.labels.push(`comparação ${charte.data.labels.length + 1}`)
 
-    const valor =
-        Number(document.querySelector('#pop input').value)
-
-    valores.push(valor)
-    charte.data.labels.push(`venda ${charte.data.labels.length + 1}`)
-
+    const somaG = valores.reduce((acc, agr) => acc + agr, 0)
+    const somaR = receita.reduce((acc, agr) => acc+ agr, 0)
+    const somaL = lucro.reduce((acc, agr) => acc + agr, 0)
+    const gCard = document.getElementById('gSpan')
+    const reCard = document.getElementById('reSpan')
+    const lCard = document.getElementById('lSpan')
+    gCard.textContent = `R$ ${somaG}`
+    reCard.textContent = `R$ ${somaR}`
+    lCard.textContent = `R$ ${somaL}`
     charte.update()
 
 })

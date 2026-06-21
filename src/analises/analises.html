@@ -22,7 +22,14 @@
         <div>
             <h1>Insira Quantia de venda</h1>
             
-            <input type="text" placeholder="valores con virgulaxx'">
+            <input type="text" placeholder="Gasto" id="gastos">
+            <input type="text" placeholder="Receita " id="receita">
+            <select name="" id="selecte">
+                <option  disabled selected>Tipo de gráfico</option>
+                <option value="pie">Pizza</option>
+                <option value="line">Linha</option>
+                <option value="bar">Barra</option>
+            </select>
             <div class="but">
             <button id="b">Salver em gráfico</button>
         <button class="b" id="fec">fechar</button>
@@ -64,7 +71,7 @@
     <h2 class="sub">Acompanhe todas as novidades de suas análises</h2>
     <article class="cards">
         <div class="carde" id="conv">
-            <h3>Conversor</h3>
+            <h3>Calculo</h3>
 
             
         </div>
@@ -77,13 +84,32 @@
             <h3>Faturamento</h3>
   
            
-        
+          </div>
     </article>
-    </div>
+  
     <br><br><br><br><br>
     <div class="contgrafi">
         <canvas id="MyGrafi" aria-label="HEllow bitch"></canvas>
         </div>
+            <article class="cards">
+        <div class="carde" id="conv">
+            <h3>Receita total</h3>
+            <span id="reSpan"></span>
+
+            
+        </div>
+        <div class="carde">
+            <h3>Gasto total</h3>
+            <span id="gSpan"></span>
+      
+           
+        </div>
+        <div class="carde">
+            <h3>Faturamento</h3>
+            <span id="lSpan"></span>
+           
+          </div>
+    </article>
     </section>
   </main>
 

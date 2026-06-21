@@ -1,19 +1,10 @@
 import axios from 'axios'
 import cors from 'cors'
-
-const API = async () => {
-    try{
-    const { data } = await axios.get("https://api.exchangerate.host/latest", {
-        params:{
-            base: "USD",
-            symbols: "BRL"
-        }
-    })
-    console.log(data)
+const valor = 100
+const origem = 'BRL'
+const destino = 'USD'
+const api = async () => {
+    const res = await axios.get(`https://api.frankfurter.app/latest?amount=${valor}&from=${origem}&to=${destino}`)
+    console.log(res.data)
 }
-    catch(error){
-        console.log("pau no axios", { error })
-    }   
-}
-API()
-
+api()

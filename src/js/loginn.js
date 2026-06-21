@@ -1,4 +1,7 @@
-    import axios from "axios";
+import axios from "axios";
+import  emailjs from '@emailjs/browser'
+
+emailjs.init("5_JqmtV7HfHYu5zbd");
 
     const logar = async () => {
                         const email =  document.getElementById("input-emailog").value
@@ -14,8 +17,17 @@
         console.log(res.data)
         alert("user logado")
 
-        const nome = localStorage.setItem("nome", res.data.nome)
+        const nomeU = localStorage.setItem("nome", res.data.nome)
+        const emailU = localStorage.setItem('email', res.data.email)
+        emailjs.send(
+            'service_6vp4bi1', 'template_yze61ps',
+            {
+                nome: res.data.nome,
+                email: res.data.email
 
+            },
+            "5_JqmtV7HfHYu5zbd"
+        )
        window.location.href = '../index.html'
         }
 
