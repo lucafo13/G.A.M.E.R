@@ -33,6 +33,7 @@
             <div class="but">
             <button id="b">Salver em gráfico</button>
         <button class="b" id="fec">fechar</button>
+        <button id="reset" class="b">Reset</button>
             </div>
         </div>
     </article>
@@ -70,38 +71,20 @@
     <h1 class="bemvenido" id="nameH1"></h1>
     <h2 class="sub">Acompanhe todas as novidades de suas análises</h2>
     <article class="cards">
-        <div class="carde" id="conv">
-            <h3>Calculo</h3>
-
-            
-        </div>
-        <div class="carde">
-            <h3>Despesas</h3>
-      
-           
-        </div>
-        <div class="carde">
-            <h3>Faturamento</h3>
-  
-           
-          </div>
-    </article>
-  
-    <br><br><br><br><br>
-    <div class="contgrafi">
-        <canvas id="MyGrafi" aria-label="HEllow bitch"></canvas>
-        </div>
-            <article class="cards">
-        <div class="carde" id="conv">
+             <div class="carde" id="conv">
             <h3>Receita total</h3>
             <span id="reSpan"></span>
 
             
         </div>
         <div class="carde">
+            <div class="title">
             <h3>Gasto total</h3>
+            <i class="bi bi-graph-up"></i>
+            </div>
+            <div>
             <span id="gSpan"></span>
-      
+            </div>
            
         </div>
         <div class="carde">
@@ -109,14 +92,59 @@
             <span id="lSpan"></span>
            
           </div>
+          
     </article>
+  
+    <br><br><br><br><br>
+    <div class="contgrafi">
+        <canvas id="MyGrafi" aria-label="HEllow bitch"></canvas>
+        </div>
+            <article class="cards">
+
     </section>
+    <section class="convert" id="convert">
+        <h1>Conversor de moedas</h1>
+        <article class="contConv">
+                <div class="de">
+                    <h2>De</h2>
+                    <select name="de" id="de">~
+                        <option disabled selected>Selecione uma Moeda</option>
+                        <label for="">Quantidade</label>
+                        <input  placeholder="Valor" id="amonto">
+                    </select>
+               
+                </div>
+            
+                <div class="converter">
+                    
+                    <i class="bi bi-arrow-repeat" id="trade"></i>
+                   
+                   
+                </div>
+                <div class="para">
+                    <h2>Para</h2>
+                    <select name="para" id="para">
+                        <option disabled selected>Selecione uma Moeda</option>
+                      
+                    </select>
+                      <div class="resul">
+                           
+                            <span id="result">0,00</span>
+                        </div>
+                </div>
+        </article>
+                 <div class="c">
+                    <a id="C-btn">converter</a>
+                    </div>  
+    </section>
+    <br><br><br><br><br><br><br><br><br><br>
   </main>
 
 
 
       <!--rodape e etc-->
   <script type="module" src="../js/chart.js"></script>
+  <script type="module" src="../../JS/api.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap @4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
      <script type="module" src="main.js"></script>

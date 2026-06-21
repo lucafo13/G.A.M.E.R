@@ -6,6 +6,7 @@
 *{
     color: white;
 }
+i{color: white;}
 body{
     margin: 0;
     padding: 0;
@@ -176,7 +177,8 @@ li a{
 main{
     margin-top: 110px;
     margin-left: 270px;
-    padding-left: 60px;
+    padding-left: 70px;
+
 
 }
 .bemvenido{
@@ -206,6 +208,7 @@ main{
     border-radius: 15px !important;
     width: auto;
     color: white;
+    min-width: 350px;
     text-align: center;
 }
 .carde h3{
@@ -230,10 +233,16 @@ main{
 #lSpan{
     color: green;
 }
+#MyGrafi{
+    position: relative;
+    width: 100% !important;
+    height: 100% !important;
+    display: block;
+}
 .contgrafi{
     margin-top: 30px;
-    width: 800px !important;
-    height: 400px !important;
+    width: 1115px !important;
+    height: 500px !important;
     background-color: var(--bg-geral);
     border-radius: 20px;
     padding: 15px;
@@ -302,7 +311,7 @@ select{
 
 }
 select:focus{
-    width: 350px;
+    width: 280px;
 }
 #b, .b{
         background-color: transparent;
@@ -322,4 +331,116 @@ select:focus{
 }
 .but{
   display: inline;
+}
+.de input, .resul{
+    color: white;
+    background: transparent;
+    width: 250px;
+    height: 50px;
+    font-family: var(--monserrat);
+    border-radius: 7px;
+    transition: .5s;
+    
+}
+.de input:focus{
+    border-left: 1px solid green;
+    box-shadow: 0 5px 5px white;
+    width: 280px;
+}
+.de input:hover{
+    transform: scale(1.01);
+}
+.contConv{
+    display: flex;
+    
+    align-items: center;
+    min-width: 1115px;
+    
+    justify-content: center;
+}
+.de, .para, .converter{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    flex-direction: column;
+    gap: 25px;
+}
+.de label, .para label{
+    color: white;
+}
+.convert h1{
+    font-family: var(--orbitron);
+    font-size: 50px;
+}
+.convert{
+    margin-top: 50px;
+}
+.contConv{
+    background-color: var(--bg-geral);
+    padding: 20px;
+    width: 80%;
+
+}
+.de select, .para select{
+    font-size: 20px;
+}
+.resul{
+    font-size: 20px;
+    border: 1px solid gray;
+    /* align-items: center; */
+    display: flex;
+    flex-direction: row;
+   padding: 10px;
+    justify-content: space-around;
+
+}
+.converter i{
+    margin: 0 auto; 
+}
+.converter i{
+     display: flex;
+    justify-content: center;
+    align-items: center;
+   
+    
+    width: 70px;
+    height: 70px;
+
+    border: 2px solid white;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+    font-size: 28px;
+
+    transition: .3s;
+}   
+.converter i:hover{
+        transform: rotate(180deg);
+    box-shadow: 0 0 20px rgba(255,255,255,.4);
+}
+.c a{
+   width: 250px;
+    height: 60px;
+    margin: 30px 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+      border: 2px solid white;
+    border-radius: 10px;
+    font-size: 20px;
+}
+#result{
+    color: white;
+    font-size: 20px;
+}
+.title{
+    display: flex;
+    justify-content: space-between;
+}
+.title i {
+    padding: 10px 15px;
+    border: 1px solid #fff;
+    border-radius: 5px;
 }

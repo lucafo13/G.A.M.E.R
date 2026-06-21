@@ -7,9 +7,9 @@ const conv = document.getElementById('conv')
 conv.addEventListener('click', () => {
     window.location.href = 'analises.html#pop'
 })
-const valores = []
-const receita = []
-const lucro = []
+let valores = []
+let receita = []
+let lucro = []
 const charte =
 new Chart(graf, {
     type: 'line',
@@ -35,12 +35,28 @@ new Chart(graf, {
     },
     options: {
         scales: {
-            y: {
-                beginAtZero: true
-            }
+                x: {
+        ticks: {
+            color: "#fff"
         },
-
-        maintainAspectRatio:true
+        grid: {
+            color: "rgba(255,255,255,.05)"
+        }
+    },
+               y: {
+        ticks: {
+            color: "#fff"
+        },
+        grid: {
+            color: "rgba(255,255,255,.05)"
+        },
+        beginAtZero: true
+    }
+        },
+    responsive: true,
+        maintainAspectRatio:true,
+        devicePixelRatio: 2
+        
     }
 
 });
@@ -72,4 +88,15 @@ const instos = document.getElementById('gastos').value
 })
 document.getElementById('fec').addEventListener('click', () => {
     window.location.href = '#'
+})
+document.getElementById('reset').addEventListener('click', () => {
+
+    valores.length = 0
+    receita.length = 0
+    lucro.length = 0
+
+    charte.data.labels = ['Comparação 1']
+
+    charte.update()
+
 })
