@@ -3,6 +3,7 @@ import express from 'express'
 import cors from 'cors'
 import mongoose, { MongooseError } from 'mongoose'
 import dotenv from 'dotenv'
+import cron from 'cron'
 
 dotenv.config()
 
@@ -11,6 +12,7 @@ dotenv.config()
 const app = express()
 app.use(express.json())
 app.use(cors())
+
 
 
 // mongodb - banquinho de dados || nao faço ideia de como usar ent to vendo video aula de um canal chamado victor lima - eita gloria
@@ -41,6 +43,7 @@ const UserSchema = mongoose.Schema({
         required: true
     }
 })
+
 
 // tabelinha n chorax   x | tal da collectionsxxx
 const User = mongoose.model('Users', UserSchema)
@@ -182,3 +185,22 @@ app.delete('/Users/:id', async (req, res) => {
 
     res.status(200).json({ mensagem: "Usuario deletado"}, Users)
 })})
+
+
+app.post('/pais', async (req, res) => {
+    try{
+        const { email, senha, npais } = req.body
+        const findtrade = await findOndeAndUpdate({ email }, { senha }, { pais: npais}, { new: true})
+        if(!findtrade){
+            return  res.json({mensagem: 'User não encontrado'})
+        }
+        
+    }
+    catch(err){
+        res.status(404).json({mesagem: "Usuario nao achado"})
+        
+    };
+    
+
+    
+})
