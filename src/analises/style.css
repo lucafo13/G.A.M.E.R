@@ -444,6 +444,7 @@ select:focus{
 .title{
     display: flex;
     justify-content: space-between;
+    
 }
 .title i {
     padding: 10px 15px;

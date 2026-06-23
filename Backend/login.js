@@ -24,7 +24,7 @@ mongoose.connect(process.env.MONGO).then(() => {
 })
 
 // tentando definir model
-
+//modelo de bohr
 const UserSchema = mongoose.Schema({
     nome: {
         type: String,
