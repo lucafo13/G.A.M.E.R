@@ -29,7 +29,7 @@
           <li><a href="index.html">Inicio</a></li>
           <li><a href="src/analises/analises.html">Analises</a></li>
           <li><a href="chatbot.html">ChatBot</a></li>
-          <li><a href="sobre.html">sobre</a></li>
+          <li><a href="src/sobre/sobre.html">sobre</a></li>
           <li><a href="#contato">Contato</a></li>
           <li><a href="" id="name"></a></li>
       </ul>
@@ -65,7 +65,7 @@
             const avatar = document.createElement('div');
             avatar.classList.add('avatar');
             
-            // FOTO DO BOT APLICADA AQUI
+            
             avatar.innerHTML = remetente === 'bot' 
                 ? '<img src="assets/icones/perfilbot.png" class="foto-bot">' 
                 : '<i class="bi bi-person-fill"></i>';
@@ -73,7 +73,7 @@
             const bubble = document.createElement('div');
             bubble.classList.add('message-bubble');
             
-            // Formata negrito
+            
             bubble.innerHTML = texto.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
 
             row.appendChild(avatar);
