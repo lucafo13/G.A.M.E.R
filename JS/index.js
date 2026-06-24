@@ -5,7 +5,7 @@ const login = document.querySelector('#login');
 
 login.addEventListener('click', () => {
     setTimeout(() => {
-        window.location.href = 'src/loginn.html';
+        window.location.href = 'src/login/loginn.html';
     }, 1000);
 })
 const nome = localStorage.getItem("nome")
