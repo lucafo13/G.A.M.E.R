@@ -85,6 +85,9 @@ input{
   justify-content: center;
 
 }
+.login h1{
+    font-family: var(--font);
+}
 .login h2{
   color: gray;
   font-family: 'Montserrat', sans-serif;
