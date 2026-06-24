@@ -80,11 +80,13 @@ const instos = document.getElementById('gastos').value
     const gCard = document.getElementById('gSpan')
     const reCard = document.getElementById('reSpan')
     const lCard = document.getElementById('lSpan')
-    gCard.textContent = `R$ ${somaG}`
-    reCard.textContent = `R$ ${somaR}`
-    lCard.textContent = `R$ ${somaL}`
+    gCard.textContent = `Gastos - R$ ${somaG}`
+    reCard.textContent = `Receita - R$ ${somaR}`
+    lCard.textContent = `Lucro - R$ ${somaL}`
     charte.update()
-
+    gCard.style.color = '#ce1414'
+    lCard.style.color = '#3ac41b'
+    reCard.style.color = '#fff'
 })
 document.getElementById('fec').addEventListener('click', () => {
     window.location.href = '#'

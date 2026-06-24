@@ -1,0 +1,119 @@
+:root{
+    --bg-geral: #151515;
+    --orbitron: 'Orbitron', sans-serif;
+    --monserrat: 'Montserrat', sans-serif;
+}
+.carde{
+    background-color: var(--bg-geral) !important;
+    font-family: var(--monserrat) !important;
+    /* backdrop-filter: blur(10px); */
+    align-items: center;
+    font-size: 21px;
+    
+    padding: 40px;
+    transition: .5s;
+    cursor: pointer;
+    border-radius: 15px !important;
+    width: auto;
+    color: white;
+    min-width: 350px;
+    text-align: center;
+}
+main{
+    margin-top: 100px;
+        margin-left: 270px;
+    padding-left: 70px;
+}
+.cardes{
+    display: flex;
+    gap: 30px;
+    margin-top: 10px;
+}
+.send{
+    background-color: var(--bg-geral);
+    border-radius: 20px;
+    width: 1140px;
+    justify-content: center;
+    height: auto;
+    padding: 30px;
+    gap: 50px;
+    text-align: center;
+    }
+.send h2{
+    font-family: var(--orbitron);
+    font-size: 45px;
+}
+.req, .res{
+    display: flex;
+    justify-content: space-around;
+}
+.req input{
+    width: 350px;
+    padding: 10px;
+    /* border: none; */
+    border-radius: 10px;
+    height: 40px;
+    transition: .5s;
+    background: #171717;
+}
+.req input:focus{
+    width: 410px;
+    
+}
+.req input:hover{
+    transform: scale(1.067);
+}
+.res input{
+    padding: 10px;
+    width: 915px;
+    height: 120px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    background-color: var(--bg-geral);
+    color: white;
+}
+.res{
+    margin-top: 25px;
+}
+.center{
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.hero{
+    gap: 30px  ;
+}
+
+.antistrap-asidebar{
+    display: flex;
+    left: 0;
+    border-right: 1px solid white;
+    color: white;
+  
+}
+.asidebarrita{
+    display: flex;
+    flex-direction: column;
+    gap: 
+    40px;
+    color: white;
+    left: 0;
+    border-right: 1px solid white;
+    padding: 20px;
+      height: 100vh;
+    width: 250px;   
+    position: fixed;
+    margin-top: 80px;
+}
+.asidebarrita a{
+    color: white !important;
+    text-decoration: none !important;
+    font-size: 20px;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+}
+
+.barritaLink:hover{
+    color: #ddd;
+}

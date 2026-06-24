@@ -5,6 +5,7 @@
 }
 *{
     color: white;
+    transition: .5s !important;
 }
 i{color: white;}
 body{
@@ -290,7 +291,7 @@ main{
     border-left:4px solid #fff;
     color:white;
     padding:15px;
-    transition: .5s Im !important ;
+    transition: .5s  !important ;
     font-family:'Orbitron';
 
 }
