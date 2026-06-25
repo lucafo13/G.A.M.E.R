@@ -7,7 +7,9 @@
 body {
     margin: 0; 
     padding-top: 85px;
+    font-family: 'Montserrat', sans-serif;
 }
+
 h1, h2, h3 {
     display: flex;
     flex-direction: column;
@@ -21,11 +23,9 @@ h1, h2, h3 {
     border-radius: 115px;
     
 }
-.empresa {
 
-}
 .bot {
-    
+    margin-bottom: 40px;
 }
 nav {
     position: fixed !important;
@@ -80,4 +80,9 @@ main {
     flex-direction: row;
     margin-top: 4vh;
     
+}
+.blau {
+    display: flex;
+    flex-direction: column;
+    margin-left: 23px;
 }
