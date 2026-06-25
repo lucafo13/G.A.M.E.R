@@ -8,7 +8,7 @@ const cadastro = async () => {
     const senha = document.getElementById("input-pass").value
     const pais = document.getElementById("option").value
 
-    const cad = await axios.post("http://localhost:3000/cadastro", {
+    const cad = await axios.post("https://g-a-m-e-r.onrender.com/cadastro", {
     nome,
     email,
     senha,

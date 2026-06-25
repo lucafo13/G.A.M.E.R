@@ -9,7 +9,7 @@ emailjs.init("5_JqmtV7HfHYu5zbd");
 
         try{
 
-        const res = await axios.post('http://localhost:3000/login', {
+        const res = await axios.post("https://g-a-m-e-r.onrender.com/login", {
             email,  
             senha
         })
