@@ -452,3 +452,111 @@ select:focus{
     border: 1px solid #fff;
     border-radius: 5px;
 }
+@media screen and (max-width: 768px) {
+    nav {
+        height: auto;
+        flex-direction: column;
+        padding: 15px;
+        position: relative;
+    }
+
+    ul {
+        flex-direction: column;
+        gap: 10px;
+        padding: 0;
+        text-align: center;
+    }
+
+    .op {
+        position: static;
+        transform: none;
+        flex-direction: column;
+        gap: 15px;
+        margin: 15px 0;
+    }
+
+    .login {
+        float: none;
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .asidebarrita {
+        display: none; 
+    }
+
+    main {
+        margin-top: 20px;
+        margin-left: 0;
+        padding: 0 20px;
+    }
+
+    .bemvenido {
+        font-size: 32px;
+        text-align: center;
+    }
+
+    .sub {
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .cards {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .carde {
+        min-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .contgrafi {
+        width: 100% !important;
+        height: auto !important;
+        min-height: 300px;
+    }
+
+    .contConv {
+        flex-direction: column;
+        width: 100%;
+        min-width: 100%;
+        gap: 20px;
+        box-sizing: border-box;
+    }
+
+    .de input, .select, select, .resul, .de, .para, .converter {
+        width: 100% !important;
+    }
+
+    .convert h1 {
+        font-size: 30px;
+        text-align: center;
+    }
+
+    .pop {
+        width: 90%;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+    .pop div input:focus {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1200px) {
+    main {
+        margin-left: 260px;
+        padding-left: 20px;
+    }
+
+    .cards {
+        flex-wrap: wrap;
+    }
+
+    .contgrafi, .contConv {
+        width: 100% !important;
+        min-width: auto;
+    }
+}

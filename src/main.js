@@ -63,5 +63,5 @@ log.addEventListener("click", () => {
     window.location.href = "loginn.html"
 })
 passForget.addEventListener("click", () => {
-    window.location.href = "subpages/passForget.html"
+    window.location.href = "/passForget.html"
 })
