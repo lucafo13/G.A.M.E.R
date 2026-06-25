@@ -1,7 +1,9 @@
 :root{
     --padrao: #151515;
 }
-
+html{
+    scroll-behavior: smooth;
+}
 *{
     color: white;
 }

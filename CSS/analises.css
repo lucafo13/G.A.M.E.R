@@ -560,3 +560,22 @@ select:focus{
         min-width: auto;
     }
 }
+.how h1{
+    font-size: 50px;
+    font-family: var(--orbitron);
+}
+.how h2{
+    font-family: var(--orbitron);
+}
+.how h3{
+    font-size: 40px;
+    font-family: var(--orbitron);
+}
+.how p{
+    font-size: 30px;
+    font-family: var(--monserrat);
+}
+.how{
+    padding-right: 30px;
+    text-align: center;
+}
