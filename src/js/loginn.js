@@ -28,7 +28,7 @@ emailjs.init("5_JqmtV7HfHYu5zbd");
             },
             "5_JqmtV7HfHYu5zbd"
         )
-       window.location.href = '../index.html'
+       window.location.href = '/index.html'
         }
 
         catch ( error ){
@@ -42,4 +42,4 @@ emailjs.init("5_JqmtV7HfHYu5zbd");
     cadog.addEventListener('click', logar)
 
     const logg = document.getElementById('logg')
-    logg.addEventListener('click', () => {window.location.href = './login.html'})
+    logg.addEventListener('click', () => {window.location.href = '/login.html'})
