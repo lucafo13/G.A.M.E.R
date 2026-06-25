@@ -1,7 +1,13 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box !important;
+}
+
+
+
 html, body {
-    overflow-x: hidden !important;
-    max-width: 100vw !important;
-    width: 100%;
+    background-color:black !important;
 }
 :root{
     --bg-geral: #151515;
@@ -49,6 +55,7 @@ main {
     flex-direction: column;
     align-items: center;
     box-sizing: border-box;
+    
 
 }
 .cardes {
@@ -101,6 +108,7 @@ main {
 }
 .res input{
     padding: 10px;
+    width: 100%;
     width: 915px;
     height: 120px;
     margin-bottom: 20px;
@@ -126,38 +134,7 @@ main {
     align-items: center;
 }
 
-.antistrap-asidebar{
-    display: flex;
-    left: 0;
-    border-right: 1px solid white;
-    color: white;
-  
-}
-.asidebarrita{
-    display: flex;
-    flex-direction: column;
-    gap: 
-    40px;
-    color: white;
-    left: 0;
-    border-right: 1px solid white;
-    padding: 20px;
-      height: 100vh;
-    width: 250px;   
-    position: fixed;
-    margin-top: 80px;
-}
-.asidebarrita a{
-    color: white !important;
-    text-decoration: none !important;
-    font-size: 20px;
-    font-family: 'Orbitron', sans-serif;
-    font-weight: bold;
-}
 
-.barritaLink:hover{
-    color: #ddd;
-}
 @media screen and (max-width: 768px) {
     .asidebarrita {
         display: none;
