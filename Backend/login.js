@@ -3,7 +3,7 @@ import express from 'express'
 import cors from 'cors'
 import mongoose, { MongooseError } from 'mongoose'
 import dotenv from 'dotenv'
-import cron from 'cron'
+
 
 dotenv.config()
 
@@ -48,7 +48,7 @@ const UserSchema = mongoose.Schema({
 // tabelinha n chorax   x | tal da collectionsxxx
 const User = mongoose.model('Users', UserSchema)
 
-const PORT = process.env.API
+const PORT = process.env.API || 3000
 
 /* codigo em si */
 app.listen(PORT, () => {
