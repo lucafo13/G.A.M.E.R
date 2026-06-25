@@ -19,33 +19,43 @@
     <main>
         <article class="logo-patch">
             <div class="img-counter">
-                <img src="../../assets/icones/auradelciofinal.png" alt="" class="img-login">
+                <img src="/assets/icones/auradelciofinal.png" alt="" class="img-login">
                 <br>
-                <button class="btn-custom" id="logg">Cadastrar</button>
+                <button class="btn-custom" id="log">Entrar</button>
             </div>
         </article>
         <article>
             <div class="login">
-                <h1>Faça login na sua conta</h1>
+                <h1>Faça o cadastro da sua conta</h1>
                 <h2>Preencha seus dados</h2>
                 <form action="">
                 <div class="caixaput">
+                 <i class="bi bi-person"></i>
+                <input type="text" required class="name-input" placeholder="Nome" id="input-name">
+                </div>
+                <div class="caixaput">
                     <i class="bi bi-envelope"></i>  
-                    <input type="email" class="email-input" id="input-emailog" placeholder="Email">
+                    <input type="email" required class="email-input" id="input-email" placeholder="Email">
                 </div>
                 <div class="caixaput">
                     <i class="bi bi-key"></i>
-                    <input type="password" class="pass-input" id="input-passog" placeholder="Senha">
+                    <input type="password" required class="pass-input" id="input-pass" placeholder="Senha">
                 </div>
+                <div class="caixaput">
+                    <i class="bi bi-key"></i>
+                    <input type="password" required class="pass-input" id="input-pass-confirm" placeholder="Confirmar senha">
+                </div>
+                <select id="option">
+                   <option selected disabled>País</option>
+                </select>
                 </form>
-                <input value="Entrar" class="btn-cad" id="log-btnx" type="submit">
-                <a class="passForget" href="subpages/passForget.html">Esqueci minha senha</a>
+                <input value="Cadastrar" class="btn-cad" id="cad" type="submit">
             </div>
         </article>
     </main>
-    <script  src="../main.js" defer></script>
+    <script  src="src/main.js" defer></script>
 
-    <script src="../js/loginn.js" defer type="module"></script>
+    <script src="src/js/login.js" defer type="module"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>
