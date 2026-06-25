@@ -262,3 +262,29 @@ form{
         float: none;
     }
 }
+#log-btnx {
+    position: relative;
+    transition: all 0.3s ease;
+}
+#log-btnx.loading {
+    color: transparent !important;
+    pointer-events: none;
+}
+#log-btnx.loading::after {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 50%;
+    left: 50%;
+    margin-top: -8px;
+    margin-left: -8px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top: 2px solid white; /* Cor do círculo girando */
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
