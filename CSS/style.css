@@ -1,7 +1,9 @@
 :root{
     --padrao: #151515;
 }
-
+html{
+    scroll-behavior: smooth;
+}
 *{
     color: white;
 }
@@ -327,4 +329,94 @@ nav {
     transition: all 0.4s ease;
     margin-top: 0;
     height: 20px;
+}
+
+.footer-minimal:hover {
+    color: #fff;
+
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    nav {
+        height: auto;
+        flex-direction: column;
+        padding: 15px !important;
+        position: relative;
+    }
+
+    ul {
+        flex-direction: column;
+        gap: 10px;
+        padding: 0;
+        text-align: center;
+        margin-top: 15px;
+    }
+
+    .op {
+        position: static;
+        transform: none;
+        flex-direction: column;
+        gap: 15px;
+        margin: 15px 0;
+    }
+
+    .login {
+        float: none;
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .login button {
+        margin-right: 0;
+    }
+
+    .base {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 2rem;
+        gap: 40px;
+        text-align: center;
+    }
+
+    .hero, .hero-sec2 {
+        width: 100%;
+        align-items: center;
+    }
+
+    .hero h1, .hero-sec2 h1 {
+        font-size: 40px;
+        text-align: center;
+    }
+
+    .hero h2, .hero-sec2 h2 {
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .hero button, .hero-sec2 button {
+        width: 100%;
+        max-width: 300px;
+        float: none;
+    }
+
+    .logo img, .logo-sec2 img, .carousel, .carousel-item {
+        width: 100% !important;
+        height: auto !important;
+        max-width: 350px;
+    }
+
+    .cards {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 300px;
+    }
 }
