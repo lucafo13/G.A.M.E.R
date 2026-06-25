@@ -6,7 +6,7 @@ emailjs.init("5_JqmtV7HfHYu5zbd");
     const logar = async () => {
                         const email =  document.getElementById("input-emailog").value
         const senha = document.getElementById("input-passog").value
-
+ // aqui
         try{
 
         const res = await axios.post("https://g-a-m-e-r.onrender.com/login", {
@@ -14,6 +14,7 @@ emailjs.init("5_JqmtV7HfHYu5zbd");
             senha
         })
 
+        //fecha aquy
         console.log(res.data)
         alert("user logado")
 
@@ -28,10 +29,12 @@ emailjs.init("5_JqmtV7HfHYu5zbd");
             },
             "5_JqmtV7HfHYu5zbd"
         )
+
        window.location.href = '/index.html'
         }
 
         catch ( error ){
+            // fehca aqui
             console.log({error})
             alert("email ou senha incorretos")
         }
