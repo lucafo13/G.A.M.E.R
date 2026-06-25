@@ -1,5 +1,3 @@
-emailjs.init("5_JqmtV7HfHYu5zbd");
-
 
 const login = document.querySelector('#login');
 

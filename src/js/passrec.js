@@ -11,7 +11,7 @@ const passForget = async () => {
       return alert("As senhas não coincidem, por favor tente novamente.")
     }
 
-    const res = await axios.patch('http://localhost:3000/rec', {
+    const res = await axios.patch('https://g-a-m-e-r.onrender.com/rec', {
       email,
       Nsenha
     })
