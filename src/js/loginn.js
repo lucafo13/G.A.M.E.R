@@ -40,8 +40,6 @@ emailjs.init("5_JqmtV7HfHYu5zbd");
     } 
     const cadog = document.getElementById("log-btnx")
     cadog.addEventListener('click', logar)
-passForget.addEventListener("click", () => {
-    window.location.href = "/passForget.html"
-})
+
     const logg = document.getElementById('logg')
     logg.addEventListener('click', () => {window.location.href = '/login.html'})
