@@ -4,11 +4,11 @@ import  emailjs from '@emailjs/browser'
 emailjs.init("5_JqmtV7HfHYu5zbd");
 
     const logar = async () => {
-        const btn = document.getElementById("log-btnx");
+
                         const email =  document.getElementById("input-emailog").value
         const senha = document.getElementById("input-passog").value
  // aqui
-        try{
+  try{
 
         const res = await axios.post("https://g-a-m-e-r.onrender.com/login", {
             email,  
