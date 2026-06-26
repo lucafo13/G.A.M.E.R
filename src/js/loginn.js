@@ -4,6 +4,7 @@ import  emailjs from '@emailjs/browser'
 emailjs.init("5_JqmtV7HfHYu5zbd");
 
     const logar = async () => {
+        const btn = document.getElementById("log-btnx");
                         const email =  document.getElementById("input-emailog").value
         const senha = document.getElementById("input-passog").value
  // aqui
@@ -20,7 +21,7 @@ emailjs.init("5_JqmtV7HfHYu5zbd");
 
         const nomeU = localStorage.setItem("nome", res.data.nome)
         const emailU = localStorage.setItem('email', res.data.email)
-        emailjs.send(
+        await emailjs.send(
             'service_6vp4bi1', 'template_yze61ps',
             {
                 nome: res.data.nome,

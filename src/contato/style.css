@@ -1,43 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box !important;
+}
+
+
+
+html, body {
+    background-color:black !important;
+}
 :root{
     --bg-geral: #151515;
     --orbitron: 'Orbitron', sans-serif;
     --monserrat: 'Montserrat', sans-serif;
 }
-.carde{
+
+
+.carde {
     background-color: var(--bg-geral) !important;
     font-family: var(--monserrat) !important;
-    /* backdrop-filter: blur(10px); */
-    align-items: center;
-    font-size: 21px;
-    
-    padding: 40px;
-    transition: .5s;
+    display: flex !important;    
+    flex-direction: row !important; 
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 15px !important;              
+    font-size: 18px !important;        
+    padding: 30px 20px !important;
+    transition: .5s !important;
     cursor: pointer;
     border-radius: 15px !important;
-    width: auto;
-    color: white;
-    min-width: 350px;
-    text-align: center;
+    color: white !important;
+    box-sizing: border-box !important;
+    width: 100% !important; 
 }
-main{
-    margin-top: 100px;
-        margin-left: 270px;
-    padding-left: 70px;
+.carde:nth-child(4) {
+    grid-column: 1 / span 1;
+    margin-left: 50%; 
 }
-.cardes{
+.carde:nth-child(5) {
+    grid-column: 2 / span 1;
+    margin-left: 50%;
+}
+
+.carde a {
+    color: white !important;
+    text-decoration: none !important;
+}   
+
+main { 
+    margin-top: 100px; 
+    margin-left: 250px;   
+    padding-left: 0;
     display: flex;
-    gap: 30px;
-    margin-top: 10px;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    
+
+}
+.cardes {
+    display: grid !important;
+    grid-template-columns: repeat(3, 360px) !important; 
+    gap: 20px !important;
+    max-width: 1140px !important;  
+    margin: 4vh auto !important; 
+    justify-content: center !important;
+}
+.cardes {
+    justify-content: center;
+    align-items: center;
 }
 .send{
     background-color: var(--bg-geral);
     border-radius: 20px;
-    width: 1140px;
-    justify-content: center;
+    max-width: 1140px;
+   
     height: auto;
     padding: 30px;
     gap: 50px;
     text-align: center;
+   
+    margin-bottom: 5vh;
     }
 .send h2{
     font-family: var(--orbitron);
@@ -65,6 +108,7 @@ main{
 }
 .res input{
     padding: 10px;
+    width: 100%;
     width: 915px;
     height: 120px;
     margin-bottom: 20px;
@@ -81,52 +125,19 @@ main{
     align-items: center;
     justify-content: center;
 }
-.hero{
-    gap: 30px  ;
-}
-
-.antistrap-asidebar{
-    display: flex;
-    left: 0;
-    border-right: 1px solid white;
-    color: white;
-  
-}
-.asidebarrita{
+.hero {
+    gap: 30px;
+    margin-left: 0 !important; 
+    width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 
-    40px;
-    color: white;
-    left: 0;
-    border-right: 1px solid white;
-    padding: 20px;
-      height: 100vh;
-    width: 250px;   
-    position: fixed;
-    margin-top: 80px;
-}
-.asidebarrita a{
-    color: white !important;
-    text-decoration: none !important;
-    font-size: 20px;
-    font-family: 'Orbitron', sans-serif;
-    font-weight: bold;
+    align-items: center;
 }
 
-.barritaLink:hover{
-    color: #ddd;
-}
+
 @media screen and (max-width: 768px) {
     .asidebarrita {
         display: none;
-    }
-
-    main {
-        margin-top: 80px;
-        margin-left: 0;
-        padding-left: 20px;
-        padding-right: 20px;
     }
 
     .cardes {

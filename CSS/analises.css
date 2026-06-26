@@ -29,6 +29,7 @@ body{
     left: 0;
     border-right: 1px solid white;
     color: white;
+    position: sticky;
   
 }
 .asidebarrita{
@@ -40,7 +41,7 @@ body{
     left: 0;
     border-right: 1px solid white;
     padding: 20px;
-      height: 100vh;
+    height:calc(100vh-60px);
     width: 250px;   
     position: fixed;
     margin-top: 80px;
@@ -465,4 +466,5 @@ select:focus{
 .how{
     padding-right: 30px;
     text-align: center;
+}
 }
