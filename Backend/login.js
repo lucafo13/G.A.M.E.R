@@ -3,8 +3,8 @@ import express from 'express'
 import cors from 'cors'
 import mongoose, { MongooseError } from 'mongoose'
 import dotenv from 'dotenv'
-
-
+import upload from './config/multer.js'
+import cloudinary from './config/cloudnary.js'
 dotenv.config()
 
 
@@ -41,6 +41,10 @@ const UserSchema = mongoose.Schema({
     pais: {
         type: String,
         required: true
+    },
+    foto: {
+        type: String,
+        default: ""
     }
 })
 
@@ -124,7 +128,7 @@ app.post('/login',  async (req, res) => {
        return  res.status(404).json({mensagem:"usuario inexistente"})
     }
 
-    res.status(200).json({mensagem: "usuario logado com sucesso", nome: mongoCheck.nome, email: mongoCheck.email, senha: mongoCheck.senha})
+    res.status(200).json({mensagem: "usuario logado com sucesso", nome: mongoCheck.nome, email: mongoCheck.email, senha: mongoCheck.senha, id: mongoCheck.id})
 
 
 })
@@ -159,9 +163,7 @@ try{
 }
 catch(err){
     res.status(418).json({mensagem: "falha interna!!!"})
-};
-   
-
+}
 
 app.delete('/Users/:id', async (req, res) => {
     // const id = req.params.id
@@ -203,4 +205,22 @@ app.post('/pais', async (req, res) => {
     
 
     
+})
+
+
+
+app.post('/perfil/:id', upload.single('foto'), async (req, res) => {
+    try{
+        const user = await User.findById(req.params.id)
+        const url = req.file.path
+
+        user.foto = url;    
+
+        await user.save()
+        
+        res.json({ mensagem: 'deu bom', user, foto: user.foto}).status(201)
+    }
+    catch(error){
+        res.status(418).json({erro: error})
+    }
 })

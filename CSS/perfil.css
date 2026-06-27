@@ -1,0 +1,61 @@
+:root{
+    --bg-geral: #151515;
+    --orbitron: 'Orbitron', sans-serif;
+    --monserrat: 'Montserrat', sans-serif;
+}
+.pfp{
+    margin-top: 150px;
+    margin-left: 150px;
+    background-color: var(--bg-geral);
+    border-radius: 20px;
+    border: 1px solid white;
+    height: auto;
+    display: flex;
+    max-height: auto;
+    max-width: auto;
+    width: 450px;
+
+}
+h1{
+    color: white;
+    font-family: var(--orbitron);
+    
+}
+.pfphoto{
+  display: flex;
+  padding: 20px;
+  height: 100%;
+   flex-direction: column;
+   
+}
+.foto{
+    display:flex;
+   
+    height: 400px;
+    max-width: 400px;
+    max-height: 5500px;
+    
+    border-radius: 1180px;
+    border: 1px solid white;
+}
+.foto img{
+    position: relative;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 1180px;
+    height: 100% !important;
+}
+.pfphoto button{
+        background-color: transparent;
+    border: 2px solid white;
+    color: white;
+    padding: 5px 10px;
+    width: 150px;
+    border-radius: 15px;
+    margin-right: 20px;
+    margin-top: 10px;
+    font-size: 16px;
+    width: 400px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}

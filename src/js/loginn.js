@@ -10,7 +10,7 @@ emailjs.init("5_JqmtV7HfHYu5zbd");
  // aqui
   try{
 
-        const res = await axios.post("https://g-a-m-e-r.onrender.com/login", {
+        const res = await axios.post("/login", {
             email,  
             senha
         })
@@ -21,6 +21,8 @@ emailjs.init("5_JqmtV7HfHYu5zbd");
 
         const nomeU = localStorage.setItem("nome", res.data.nome)
         const emailU = localStorage.setItem('email', res.data.email)
+        const senhaU = localStorage.setItem('senha', res.data.senha)
+        const idU = localStorage.setItem('id', res.data.id)
         await emailjs.send(
             'service_6vp4bi1', 'template_yze61ps',
             {
