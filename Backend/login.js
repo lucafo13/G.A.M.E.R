@@ -225,24 +225,26 @@ app.post('/perfil/:id', upload.single('foto'), async (req, res) => {
             res.status(404).json({mensagem: "caminho nao achavel"})
         }
 
-        const resultado = await new Promise((resolve, reject) => {
-            const stream = cloudinary.uploader.upload_stream(
-            {
-                folder: 'perfil-pfp'
-            },
+const resultado = await new Promise((resolve, reject) => {
+    const stream = cloudinary.uploader.upload_stream(
+        {
+            folder: "perfil-pfp"
+        },
+        (pau, result) => {
+            if(pau){
+                reject(err);
+            }else{
+                resolve(result);
+            }
+        }
 
-            (pau, result) => {
-                if(pau){
-                    reject(pau)
-                } else{
-                    resolve(result)
-                }
-            })
-            
-        streamifier.createReadStream(url).pipe(stream)
-        user.foto = resultado.secure_url     
+    );
 
-        })
+    streamifier
+        .createReadStream(req.file.buffer)
+        .pipe(stream);
+
+});
 
         await user.save()
         
