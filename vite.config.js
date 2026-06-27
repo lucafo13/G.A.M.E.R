@@ -11,8 +11,8 @@ export default defineConfig({
         contato: 'contato.html',
         sobre: 'sobre.html',
         loginn: 'loginn.html',
-        passForget: 'passForget.html'
-        perfil: 'perfil.html'
+        passForget: 'passForget.html',
+        perfil: 'perfil.html' 
       }
     }
   }
