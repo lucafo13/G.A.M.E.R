@@ -9,7 +9,17 @@ senha.textContent = localStorage.getItem('senha')
 const pegafoto = document.getElementById('getfoto')
 const pfp = document.getElementById('fotoatu')
 
+const classN = document.querySelectorAll('.namep')
+const classE = document.querySelectorAll('.email')
+const classS = document.querySelectorAll('.senha')
 
+classN.forEach((name)=>{name.textContent = localStorage.getItem('nome')})
+classE.forEach(email => {
+    email.textContent = localStorage.getItem('email')
+});
+classS.forEach(element => {
+    element.textContent = localStorage.getItem('senha')
+});
 pegafoto.addEventListener('change', async () => {
 
     const arquivo = pegafoto.files[0]   
@@ -28,3 +38,14 @@ pegafoto.addEventListener('change', async () => {
 if(localStorage.getItem('foto')){
     pfp.src = localStorage.getItem('foto')
 }
+const foto = async () => {
+    try{
+        const res = await axios.get(`https://g-a-m-e-r.onrender.com/Users/${localStorage.getItem('email')}`)
+        console.log(res.data)
+        pfp.src = res.data.userMail.foto
+    }
+    catch(err){
+        alert('ai meu cuzinhooo')
+    }
+}
+foto()

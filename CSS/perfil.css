@@ -5,15 +5,16 @@
 }
 .pfp{
     margin-top: 150px;
-    margin-left: 150px;
+    margin-left: 80px;
     background-color: var(--bg-geral);
     border-radius: 20px;
-    border: 1px solid white;
+   
     height: auto;
     display: flex;
+    flex-direction: row;
     max-height: auto;
     max-width: auto;
-    width: 450px;
+  
 
 }
 h1{
@@ -25,6 +26,7 @@ h1{
   display: flex;
   padding: 20px;
   height: 100%;
+  width: 450px;
    flex-direction: column;
    
 }
@@ -58,4 +60,13 @@ h1{
     width: 400px;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
+}
+
+
+.info{
+    padding: 20px;
+    height: 100%;
+     border: 1px solid white;
+ width: 100%;
+ margin: 20px;   
 }
