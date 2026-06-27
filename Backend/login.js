@@ -211,46 +211,56 @@ app.post('/pais', async (req, res) => {
 
 
 
-app.post('/perfil/:id', upload.single('foto'), async (req, res) => {
-    try{
-        const user = await User.findById(req.params.id)
-        const url = req.file.buffer
+aapp.post('/perfil/:id', upload.single('foto'), async (req, res) => {
+    try {
 
+        const user = await User.findById(req.params.id);
 
-        if(!user){
-          return  res.status(404).json({mensagem: "user nao achavel"})
+        if (!user) {
+            return res.status(404).json({ mensagem: "user nao achavel" });
         }
 
-        if(!req.file){
-          return  res.status(404).json({mensagem: "caminho nao achavel"})
+        if (!req.file) {
+            return res.status(404).json({ mensagem: "imagem nao enviada" });
         }
 
         const resultado = await new Promise((resolve, reject) => {
-         const stream = cloudinary.uploader.upload_stream(
-        {
-            folder: "perfil-pfp"
-        },
-        (pau, result) => {
-            if(pau){
-                reject(pau);
-            }else{
-                resolve(result);
-            }
-        }
 
-    );
+            const stream = cloudinary.uploader.upload_stream(
 
-        streamifier
-            .createReadStream(req.file.buffer)
-            .pipe(stream);
+                {
+                    folder: "perfil-pfp"
+                },
+
+                (err, result) => {
+
+                    if (err) {
+                        reject(err);
+                    } else {
+                        resolve(result);
+                    }
+
+                }
+
+            );
+
+            streamifier
+                .createReadStream(req.file.buffer)
+                .pipe(stream);
 
         });
+
         user.foto = resultado.secure_url;
-        await user.save()
-        
-        res.status(201) .json({ mensagem: 'deu bom', foto: user.foto})
+
+        await user.save();
+
+        return res.status(201).json({
+            mensagem: "deu bom",
+            foto: user.foto
+        });
+
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({ erro: error.message });
     }
-    catch(error){
-        res.status(418).json({erro: error})
-    }
-})
+});
