@@ -4,7 +4,9 @@ import cors from 'cors'
 import mongoose, { MongooseError } from 'mongoose'
 import dotenv from 'dotenv'
 import upload from './config/multer.js'
+import streamifier from 'streamifier'
 import cloudinary from './config/cloudnary.js'
+import { resolve } from 'chart.js/helpers'
 dotenv.config()
 
 
@@ -214,11 +216,37 @@ app.post('/perfil/:id', upload.single('foto'), async (req, res) => {
         const user = await User.findById(req.params.id)
         const url = req.file.buffer
 
-        user.foto = url;        
+
+        if(!user){
+            res.status(404).json({mensagem: "user nao achavel"})
+        }
+
+        if(!req.file){
+            res.status(404).json({mensagem: "caminho nao achavel"})
+        }
+
+        const resultado = await new Promise((resolve, reject) => {
+            const stream = cloudinary.uploader_stream(
+            {
+                folder: 'perfil-pfp'
+            },
+
+            (pau, result) => {
+                if(pau){
+                    reject(pau)
+                } else{
+                    resolve(result)
+                }
+            })
+
+        })
+
+        streamifier.createReadStream(url).pipe(stream)
+        user.foto = resultado.secure_url     
 
         await user.save()
         
-        res.status(201).json({ mensagem: 'deu bom', foto: user.foto})
+        res.status(201) .json({ mensagem: 'deu bom', foto: user.foto})
     }
     catch(error){
         res.status(418).json({erro: error})
