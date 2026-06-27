@@ -226,7 +226,7 @@ app.post('/perfil/:id', upload.single('foto'), async (req, res) => {
         }
 
         const resultado = await new Promise((resolve, reject) => {
-            const stream = cloudinary.uploader_stream(
+            const stream = cloudinary.uploader.upload_stream(
             {
                 folder: 'perfil-pfp'
             },
@@ -238,11 +238,11 @@ app.post('/perfil/:id', upload.single('foto'), async (req, res) => {
                     resolve(result)
                 }
             })
-
-        })
-
+            
         streamifier.createReadStream(url).pipe(stream)
         user.foto = resultado.secure_url     
+
+        })
 
         await user.save()
         
