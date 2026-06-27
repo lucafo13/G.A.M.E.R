@@ -23,6 +23,7 @@ emailjs.init("5_JqmtV7HfHYu5zbd");
         const emailU = localStorage.setItem('email', res.data.email)
         const senhaU = localStorage.setItem('senha', res.data.senha)
         const idU = localStorage.setItem('id', res.data.id)
+        localStorage.setItem('foto', res.data.foto)
         await emailjs.send(
             'service_6vp4bi1', 'template_yze61ps',
             {

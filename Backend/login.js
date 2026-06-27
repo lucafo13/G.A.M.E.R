@@ -1,7 +1,7 @@
 // imports | favor nao cutucar
 import express from 'express'
 import cors from 'cors'
-import mongoose, { MongooseError } from 'mongoose'
+import mongoose, { mongo, MongooseError } from 'mongoose'
 import dotenv from 'dotenv'
 import upload from './config/multer.js'
 import streamifier from 'streamifier'
@@ -130,7 +130,7 @@ app.post('/login',  async (req, res) => {
        return  res.status(404).json({mensagem:"usuario inexistente"})
     }
 
-    res.status(200).json({mensagem: "usuario logado com sucesso", nome: mongoCheck.nome, email: mongoCheck.email, senha: mongoCheck.senha, id: mongoCheck.id})
+    res.status(200).json({mensagem: "usuario logado com sucesso", nome: mongoCheck.nome, email: mongoCheck.email, senha: mongoCheck.senha, id: mongoCheck.id, foto: mongoCheck.foto})
 
 
 })
