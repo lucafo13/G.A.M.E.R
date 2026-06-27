@@ -12,6 +12,7 @@ export default defineConfig({
         sobre: 'sobre.html',
         loginn: 'loginn.html',
         passForget: 'passForget.html'
+        perfil: 'perfil.html'
       }
     }
   }
