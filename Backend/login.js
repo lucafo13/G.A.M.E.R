@@ -212,13 +212,13 @@ app.post('/pais', async (req, res) => {
 app.post('/perfil/:id', upload.single('foto'), async (req, res) => {
     try{
         const user = await User.findById(req.params.id)
-        const url = req.file.path
+        const url = req.file.buffer
 
-        user.foto = url;    
+        user.foto = url;        
 
         await user.save()
         
-        res.json({ mensagem: 'deu bom', foto: user.foto}).status(201)
+        res.status(201).json({ mensagem: 'deu bom', foto: user.foto})
     }
     catch(error){
         res.status(418).json({erro: error})
