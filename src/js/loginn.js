@@ -10,7 +10,7 @@ emailjs.init("5_JqmtV7HfHYu5zbd");
  // aqui
   try{
 
-        const res = await axios.post("/login", {
+        const res = await axios.post("https://g-a-m-e-r.onrender.com/login", {
             email,  
             senha
         })

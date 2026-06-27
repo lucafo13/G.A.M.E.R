@@ -218,7 +218,7 @@ app.post('/perfil/:id', upload.single('foto'), async (req, res) => {
 
         await user.save()
         
-        res.json({ mensagem: 'deu bom', user, foto: user.foto}).status(201)
+        res.json({ mensagem: 'deu bom', foto: user.foto}).status(201)
     }
     catch(error){
         res.status(418).json({erro: error})

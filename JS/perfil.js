@@ -6,7 +6,7 @@ const senha = document.getElementById('pass')
 nome.textContent = ` ${localStorage.getItem('nome')}`
 email.textContent = `${localStorage.getItem('email')}`
 const pegafoto = document.getElementById('getfoto')
-
+const pfp = document.getElementById('fotoatu')
 if(localStorage.getItem('foto')){
     pfp.src = localStorage.getItem('foto')
 }
@@ -20,7 +20,8 @@ pegafoto.addEventListener('change', async () => {
     }
     const form = new FormData   
     form.append('foto', arquivo)
-    const res = await axios.post(`https://g-a-m-e-r.onrender.com/perfil/${localStorage.getItem('idU')}`, form)
+    const res = await axios.post(`https://g-a-m-e-r.onrender.com/perfil/${localStorage.getItem('id')}`, form)
+    console.log(res.data)
     localStorage.setItem('foto',res.data.foto)
     pfp.src = localStorage.getItem('foto')
 }) 
