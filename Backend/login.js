@@ -211,7 +211,7 @@ app.post('/pais', async (req, res) => {
 
 
 
-aapp.post('/perfil/:id', upload.single('foto'), async (req, res) => {
+app.post('/perfil/:id', upload.single('foto'), async (req, res) => {
     try {
 
         const user = await User.findById(req.params.id);
