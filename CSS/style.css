@@ -3,15 +3,18 @@
 }
 html{
     scroll-behavior: smooth;
+   
 }
 *{
     color: white;
+    
 }
 body {
     margin: 0;
     padding: 0;
     background-color: #000 !important; 
     overflow-y: scroll; 
+
     box-sizing: border-box;
 }
 nav{

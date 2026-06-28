@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const apiKey = import.meta.env.VITE_TECHNOBOTKEY;
+const apiKey = import.meta.env.VITE_TECHNOBOTKEY
 
 const contextoEmpresa = `
 Você é o TechnoBot, o cérebro digital e assistente virtual oficial da International G.A.M.E.R. 

@@ -48,9 +48,13 @@ const foto = async () => {
         localStorage.setItem('descricao', res.data.userMail.descricao)
         bio.textContent = res.data.userMail.descricao
         pais.innerHTML = `<i class="bi bi-globe"></i> ${res.data.userMail.pais}`
+        classN.forEach((name)=>{name.textContent = res.data.userMail.nome})
+        classE.forEach(email => {email.textContent = res.data.userMail.email});
+        classS.forEach(element => {element.textContent = res.data.userMail.senha});
+        
     }
     catch(err){
-        alert('ai meu cuzinhooo')
+        console.log(err)
     }
 }
 foto()

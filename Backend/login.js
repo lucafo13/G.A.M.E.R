@@ -293,7 +293,7 @@ app.patch('/nome/:id', async (req,res) => {
         const user = await User.findById(req.params.id)
         const { nName } =  req.body;
 
-        user.nome =  nName
+        user.nome =  nName  
         await user.save()
 
         res.status(201).json("deu bom")

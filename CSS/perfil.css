@@ -165,3 +165,41 @@ h1{
 #bio{
     white-space: pre-wrap;  
 }
+
+@media screen and (max-width: 768px) {
+    .pfp {
+        margin-top: 100px;
+        margin-left: 0;
+        flex-direction: column;
+        align-items: center;
+        padding: 15px;
+    }
+
+    .pfphoto {
+        width: 100%;
+        max-width: 400px;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .foto {
+        height: 250px;
+        width: 250px;
+    }
+
+    .pfphoto button, .btn-editar {
+        width: 100%;
+        max-width: 100%;
+        margin-right: 0;
+    }
+
+    .info {
+        margin: 20px 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .modal-conteudo {
+        max-width: 100%;
+    }
+}
