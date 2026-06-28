@@ -54,7 +54,7 @@ foto()
 
 
 // bagui da descricao
-
+    
 const Des = document.getElementById('novaBio').value
 const salva = document.getElementById('salva')
 const novaBIoRes = async () => {

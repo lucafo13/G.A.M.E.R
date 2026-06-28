@@ -271,10 +271,17 @@ app.post('/perfil/:id', upload.single('foto'), async (req, res) => {
 
 app.post('/des/:id', async (req, res) => {
     try {
-           const user = User.findById(req.params.id)
+           const user = await User.findById(req.params.id)
     const { Des } = req.body
     
+    if(!user){
+        return res.status(404).json("User nao achado")
+    }
+
+    if(!Des){ return res.status(404).json("ajuda eu ne pai")}
     user.descricao = Des;
+
+    await user.save()
 
     res.status(201).json({mensagem: "The kid is not my SON",}, user.descricao)
     } catch (error) {
