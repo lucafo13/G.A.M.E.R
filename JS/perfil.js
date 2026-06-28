@@ -1,11 +1,11 @@
 import axios from "axios";
 
-const nome = document.getElementById('namep');
-const email = document.getElementById('email')
-const senha = document.getElementById('pass')
-nome.textContent = ` ${localStorage.getItem('nome')}`
-email.textContent = `${localStorage.getItem('email')}`
-senha.textContent = localStorage.getItem('senha')
+// const nome = document.getElementById('namep');
+// const email = document.getElementById('email')
+// const senha = document.getElementById('pass')
+// nome.textContent = ` ${localStorage.getItem('nome')}`
+// email.textContent = `${localStorage.getItem('email')}`
+// senha.textContent = localStorage.getItem('senha')
 const pegafoto = document.getElementById('getfoto')
 const pfp = document.getElementById('fotoatu')
 
@@ -49,3 +49,20 @@ const foto = async () => {
     }
 }
 foto()
+
+
+
+
+// bagui da descricao
+
+const Des = document.getElementById('novaBio').value
+const salva = document.getElementById('salva')
+const novaBIoRes = async () => {
+    try {
+        res = await axios.post(`https://g-a-m-e-r.onrender.com/des/${localStorage.getItem('id')}`, Des)
+        console.log(res.data)
+    } catch (error) {
+        console.log(`ih carai, ${error}`)
+    }
+}
+salva.addEventListener('click', novaBIoRes)

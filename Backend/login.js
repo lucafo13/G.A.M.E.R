@@ -47,6 +47,10 @@ const UserSchema = mongoose.Schema({
     foto: {
         type: String,
         default: ""
+    },
+    descricao: {
+        type: String,
+        default: ""
     }
 })
 
@@ -264,3 +268,16 @@ app.post('/perfil/:id', upload.single('foto'), async (req, res) => {
         return res.status(500).json({ erro: error.message });
     }
 });
+
+app.post('/des/:id', async (req, res) => {
+    try {
+           const user = User.findById(req.params.id)
+    const { Des } = req.body
+    
+    user.descricao = Des;
+
+    res.status(201).json({mensagem: "The kid is not my SON",}, user.descricao)
+    } catch (error) {
+        res.status(418).json({mensagem:"Wlecome to fortnite sheldon"})
+    }
+})
