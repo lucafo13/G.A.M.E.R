@@ -46,74 +46,70 @@
 
     </nav>
       <main>
-        <section class="pfp">
-          <article class="pfphoto">
-            <div id="foto" class="foto">
-              
-                <img src="/assets/icones/aura.png" id="fotoatu" alt="">  
-              
-            </div>
-            <div class="legend">
-              <h1 id="namep" class="namep">Ola senhor</h1>
-              <h2>Email:</h2>
-              <p id="email" class="email"></p>
-              <h2>Senha: ></h2>
-              <p id="pass" class="senha"> </p>
-                 <a href="#modal-editar" id="editar" class="btn-editar">Editar perfil</a>
-              <input type="file" id="getfoto">
-            </div>
-          </article>
-           <article class="info">
-            <div class="des">
-              <h1>Descrição <i class="bi bi-pencil"></i></h1>
-              <p id="bio"></p>
-              <h1>Editar</h1>
-              <h2>nome <i class="bi bi-pencil" id="editName"></i></h2>
-              <p id="namepp" class="namep"></p>
-              <h2>email <i class="bi bi-pencil"></i></h2>
-              <p class="email"></p>
-              <h2>senha <i class="bi bi-pencil"></i></h2>
-              <p class="senha"></p>
-            </div>
-          </article>
-        </section>
-      </main>
+        <main>
+  <section class="pfp">
+    
+    <article class="pfphoto">
+      <div id="foto" class="foto">
+        <img src="/assets/icones/aura.png" id="fotoatu" alt="Foto de perfil">
+      </div>
+      <div class="legend" style="margin-top: 30px; display: flex; justify-content: center;">
+        <a href="#modal-editar" id="editar" class="btn-editar">Editar perfil</a>
+      </div>
+    </article>
+
+    <article class="info">
+      <div class="des">
+        <h1>Descrição <i class="bi bi-pencil"></i></h1>
+        <p id="bio">Carregando...</p>
+        
+        <hr style="border-color: rgba(255, 255, 255, 0.2); margin: 30px 0;">
+
+        <h1>Informações da Conta</h1>
+        <br>
+        <h2>Nome</h2>
+        <p id="namep" class="namep">Carregando...</p>
+        
+        <h2>Email</h2>
+        <p id="emailInfo" class="email">Carregando...</p>
+        
+        <h2>Senha</h2>
+        <p id="senhaInfo" class="senha">Carregando...</p>
+      </div>
+    </article>
+
+  </section>
 </main>
 
-      <div id="modal-editar" class="modal">
-        <div class="modal-conteudo">
-          <a href="#" class="btn-fechar">&times;</a>
-          
-          <h2>Editar Perfil</h2>
-          
-          <form id="form-editar-perfil">
-            <div class="mb-3">
-              <label for="novoNome" class="form-label">Novo Nome</label>
-              <input type="text" class="form-control" id="novoNome">
-            </div>
-            
-            <div class="mb-3">
-              <label for="novoEmail" class="form-label">Novo Email</label>
-              <input type="email" class="form-control" id="novoEmail">
-            </div>
-            
-            <div class="mb-3">
-              <label for="novaSenha" class="form-label">Nova Senha</label>
-              <input type="password" class="form-control" id="novaSenha">
-            </div>
-
-            <div class="mb-3">
-              <label for="novaBio" class="form-label">Descrição (Bio)</label>
-              <textarea class="form-control" id="novaBio" rows="3"></textarea>
-            </div>
-
-            <div class="mb-3">
-              <label for="novaFoto" class="form-label">Foto de Perfil</label>
-              <input type="file" class="form-control" id="novaFoto" accept="image/*">
-            </div>
-            
-            <button type="submit" class="btn btn-primary">Salvar Alterações</button>
-          </form>
-        </div> </div> <script src="JS/perfil.js" type="module"></script>
+<div id="modal-editar" class="modal">
+  <div class="modal-conteudo">
+    <a href="#" class="btn-fechar">&times;</a>
+    <h2>Editar Perfil</h2>
+    <form id="form-editar-perfil">
+      <div class="mb-3">
+        <label for="novoNome" class="form-label">Novo Nome</label>
+        <input type="text" class="form-control" id="novoNome">
+      </div>
+      <div class="mb-3">
+        <label for="novoEmail" class="form-label">Novo Email</label>
+        <input type="email" class="form-control" id="novoEmail">
+      </div>
+      <div class="mb-3">
+        <label for="novaSenha" class="form-label">Nova Senha</label>
+        <input type="password" class="form-control" id="novaSenha">
+      </div>
+      <div class="mb-3">
+        <label for="novaBio" class="form-label">Descrição (Bio)</label>
+        <textarea class="form-control" id="novaBio" rows="3"></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="novaFoto" class="form-label">Foto de Perfil</label>
+        <input type="file" class="form-control" id="novaFoto" accept="image/*">
+      </div>
+      <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+    </form>
+  </div> 
+</div>
+ <script src="JS/perfil.js" type="module"></script>
 </body>
 </html>

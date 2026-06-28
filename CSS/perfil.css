@@ -47,7 +47,7 @@ h1{
     border-radius: 1180px;
     height: 100% !important;
 }
-.pfphoto button, .btn-editar{
+.pfphoto button{
         background-color: transparent;
     border: 2px solid white;
     color: white;
@@ -59,6 +59,41 @@ h1{
     width: 400px;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
+}
+.btn-editar {
+    display: inline-block;
+    width: 100%;
+    max-width: 400px;
+    padding: 12px 24px;
+    background: rgba (255, 255, 255, 0,03);
+    color: #ffffff;
+    border: 1.5px solid  rgba (255, 255, 255, 0,03);
+    border-radius: 12px;
+    font-family: var(--monserrat);
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    text-decoration: none;
+    text-align: center;
+    cursor:pointer;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    position: relative;
+    overflow: hidden;
+}
+.btn-editar:hover {
+    background: #ffffff;
+    color: #111111; 
+    border-color: #ffffff;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.6), 
+                0 0 40px rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px); 
+}
+.btn-editar:active {
+    transform: translateY(1px); 
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
 }
 
 
