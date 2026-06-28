@@ -13,9 +13,6 @@ const classN = document.querySelectorAll('.namep')
 const classE = document.querySelectorAll('.email')
 const classS = document.querySelectorAll('.senha')
 const pais = document.getElementById('pais')
-const nNome = document.getElementById('novoNome').value
-const nEmail = document.getElementById('novoEmail').value
-const nSenha = document.getElementById('novaSenha').value
 
 classN.forEach((name)=>{name.textContent = localStorage.getItem('nome')})
 
@@ -63,21 +60,35 @@ foto()
 
 // bagui da descricao
 
-const Des = document.getElementById('novaBio').value
+
 const salva = document.getElementById('salva')
 const novaBIoRes = async () => {
     try {
-        const res = await axios.post(`https://g-a-m-e-r.onrender.com/des/${localStorage.getItem('id')}`, {Des: Des})
-        const resNome = await axios?.patch(`https://g-a-m-e-r.onrender.com/nome/${localStorage.getItem('id')}`, {nName: nNome})
-        const resEmail = await axios?.patch(`https://g-a-m-e-r.onrender.com/email/${localStorage.getItem('id')}`, {nEmail: nEmail})
-        const resSenha = await axios?.patch(`https://g-a-m-e-r.onrender.com/senha/${localStorage.getItem('id')}`, {nSenha: nSenha})
-        console.log(res.data)
-        foto()
+        const nNome = document.getElementById('novoNome').value
+        const nEmail = document.getElementById('novoEmail').value
+        const nSenha = document.getElementById('novaSenha').value
+        const Des = document.getElementById('novaBio').value
+
+        if(Des){
+            const res = await axios?.post(`https://g-a-m-e-r.onrender.com/des/${localStorage.getItem('id')}`, {Des: Des})
+        }
+        if(nNome){
+            const resNome = await axios?.patch(`https://g-a-m-e-r.onrender.com/nome/${localStorage.getItem('id')}`, {nName: nNome})
+        }
+        if(nEmail){
+            const resEmail = await axios?.patch(`https://g-a-m-e-r.onrender.com/email/${localStorage.getItem('id')}`, {nEmail: nEmail})
+        }
+        if(nSenha){
+             const resSenha = await axios?.patch(`https://g-a-m-e-r.onrender.com/senha/${localStorage.getItem('id')}`, {nSenha: nSenha})
+        }
+
+        
+        await foto()
         
 
     } catch (error) {
         console.log(error)
     }
 }
-salva.addEventListener('click', () => {novaBIoRes()})
+salva.addEventListener('click', novaBIoRes)
 bio.textContent = localStorage.getItem('descricao')

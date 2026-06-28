@@ -288,7 +288,7 @@ app.post('/des/:id', async (req, res) => {
         res.status(418).json({mensagem:"Wlecome to fortnite sheldon"})
     }
 })
-app.patch('nome/:id', async (req,res) => {
+app.patch('/nome/:id', async (req,res) => {
     try {
         const user = await User.findById(req.params.id)
         const { nName } =  req.body;
@@ -302,7 +302,7 @@ app.patch('nome/:id', async (req,res) => {
     }
 })
 
-app.patch('email/:id', async (req,res) => {
+app.patch('/email/:id', async (req,res) => {
     try {
         const user = await User.findById(req.params.id)
         const { nEmail } = req.body;
@@ -315,7 +315,7 @@ app.patch('email/:id', async (req,res) => {
         res.status(418).json({ error })
     }
 })
-app.patch('senha/:id', async (req, res) => {
+app.patch('/senha/:id', async (req, res) => {
     try {
         const user = await User.findById(req.params.id)
         const { nSenha } = req.body;
