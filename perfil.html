@@ -59,7 +59,7 @@
               <p id="email" class="email"></p>
               <h2>Senha: ></h2>
               <p id="pass" class="senha"> </p>
-                 <button id="editar">Editar perfil </button>
+                 <a href="#modal-editar" id="editar" class="btn-editar">Editar perfil</a>
               <input type="file" id="getfoto">
             </div>
           </article>
@@ -78,6 +78,42 @@
           </article>
         </section>
       </main>
-      <script src="JS/perfil.js" type="module"></script>
+</main>
+
+      <div id="modal-editar" class="modal">
+        <div class="modal-conteudo">
+          <a href="#" class="btn-fechar">&times;</a>
+          
+          <h2>Editar Perfil</h2>
+          
+          <form id="form-editar-perfil">
+            <div class="mb-3">
+              <label for="novoNome" class="form-label">Novo Nome</label>
+              <input type="text" class="form-control" id="novoNome">
+            </div>
+            
+            <div class="mb-3">
+              <label for="novoEmail" class="form-label">Novo Email</label>
+              <input type="email" class="form-control" id="novoEmail">
+            </div>
+            
+            <div class="mb-3">
+              <label for="novaSenha" class="form-label">Nova Senha</label>
+              <input type="password" class="form-control" id="novaSenha">
+            </div>
+
+            <div class="mb-3">
+              <label for="novaBio" class="form-label">Descrição (Bio)</label>
+              <textarea class="form-control" id="novaBio" rows="3"></textarea>
+            </div>
+
+            <div class="mb-3">
+              <label for="novaFoto" class="form-label">Foto de Perfil</label>
+              <input type="file" class="form-control" id="novaFoto" accept="image/*">
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+          </form>
+        </div> </div> <script src="JS/perfil.js" type="module"></script>
 </body>
 </html>
