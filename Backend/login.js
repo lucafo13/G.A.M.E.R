@@ -161,7 +161,7 @@ try{
 
     const findUpdate = await User.findOneAndUpdate({ email } , { senha: Nsenha }, {new: true})
 
-    if(!findUpdate){
+    if(!findUpdate){    
       return  res.status(404).json({mensagem:"Usuario não encontrado"})
     } 
 
@@ -286,5 +286,45 @@ app.post('/des/:id', async (req, res) => {
     res.status(201).json({mensagem: "The kid is not my SON",}, user.descricao)
     } catch (error) {
         res.status(418).json({mensagem:"Wlecome to fortnite sheldon"})
+    }
+})
+app.patch('nome/:id', async (req,res) => {
+    try {
+        const user = await User.findById(req.params.id)
+        const { nName } =  req.body;
+
+        user.nome =  nName
+        await user.save()
+
+        res.status(201).json("deu bom")
+    } catch (error) {
+        res.status(418).json(`o carai ${{ error }}`)
+    }
+})
+
+app.patch('email/:id', async (req,res) => {
+    try {
+        const user = await User.findById(req.params.id)
+        const { nEmail } = req.body;
+
+        user.email = nEmail
+        await user.save()
+
+        res.status(201).json("we aer the championnnnnns")
+    } catch (error) {
+        res.status(418).json({ error })
+    }
+})
+app.patch('senha/:id', async (req, res) => {
+    try {
+        const user = await User.findById(req.params.id)
+        const { nSenha } = req.body;
+
+        user.senha = nSenha
+        await user.save()
+
+        res.status(201).json("we aer the championnnnnns")
+    } catch (error) {
+        res.status(404).json("rapaiz ele ta sem zap")
     }
 })

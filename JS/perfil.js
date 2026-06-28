@@ -8,12 +8,17 @@ import axios from "axios";
 // senha.textContent = localStorage.getItem('senha')
 const pegafoto = document.getElementById('getfoto')
 const pfp = document.getElementById('fotoatu')
-
+const bio = document.getElementById('bio')
 const classN = document.querySelectorAll('.namep')
 const classE = document.querySelectorAll('.email')
 const classS = document.querySelectorAll('.senha')
+const pais = document.getElementById('pais')
+const nNome = document.getElementById('novoNome').value
+const nEmail = document.getElementById('novoEmail').value
+const nSenha = document.getElementById('novaSenha').value
 
 classN.forEach((name)=>{name.textContent = localStorage.getItem('nome')})
+
 classE.forEach(email => {
     email.textContent = localStorage.getItem('email')
 });
@@ -43,6 +48,9 @@ const foto = async () => {
         const res = await axios.get(`https://g-a-m-e-r.onrender.com/Users/${localStorage.getItem('email')}`)
         console.log(res.data)
         pfp.src = res.data.userMail.foto
+        localStorage.setItem('descricao', res.data.userMail.descricao)
+        bio.textContent = res.data.userMail.descricao
+        pais.innerHTML = `<i class="bi bi-globe"></i> ${res.data.userMail.pais}`
     }
     catch(err){
         alert('ai meu cuzinhooo')
@@ -54,15 +62,22 @@ foto()
 
 
 // bagui da descricao
-    
+
 const Des = document.getElementById('novaBio').value
 const salva = document.getElementById('salva')
 const novaBIoRes = async () => {
     try {
-        res = await axios.post(`https://g-a-m-e-r.onrender.com/des/${localStorage.getItem('id')}`, Des)
+        const res = await axios.post(`https://g-a-m-e-r.onrender.com/des/${localStorage.getItem('id')}`, {Des: Des})
+        const resNome = await axios?.patch(`https://g-a-m-e-r.onrender.com/nome/${localStorage.getItem('id')}`, {nName: nNome})
+        const resEmail = await axios?.patch(`https://g-a-m-e-r.onrender.com/email/${localStorage.getItem('id')}`, {nEmail: nEmail})
+        const resSenha = await axios?.patch(`https://g-a-m-e-r.onrender.com/senha/${localStorage.getItem('id')}`, {nSenha: nSenha})
         console.log(res.data)
+        foto()
+        
+
     } catch (error) {
-        console.log(`ih carai, ${error}`)
+        console.log(error)
     }
 }
-salva.addEventListener('click', novaBIoRes)
+salva.addEventListener('click', () => {novaBIoRes()})
+bio.textContent = localStorage.getItem('descricao')

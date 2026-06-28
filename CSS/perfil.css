@@ -6,7 +6,7 @@
 .pfp{
     margin-top: 150px;
     margin-left: 80px;
-    background-color: var(--bg-geral);
+    
     border-radius: 20px;
    
     height: auto;
@@ -102,6 +102,7 @@ h1{
     height: 100%;
      border: 1px solid white;
  width: 100%;
+ background-color: var(--bg-geral); 
  margin: 20px;   
 }
 .modal {
@@ -158,4 +159,9 @@ h1{
     margin-bottom: 23px;
     border-bottom: 1.5px solid #fff;
     padding-bottom: 7px;
+}
+#pais{margin-bottom: 30px;}
+
+#bio{
+    white-space: pre-wrap;  
 }
