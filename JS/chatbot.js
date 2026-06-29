@@ -53,7 +53,7 @@ export function adicionarMensagem(texto, remetente) {
     avatar.classList.add('avatar');
     
     avatar.innerHTML = remetente === 'bot' 
-        ? '<img src="/assets/icones/perfilbot.png" class="foto-bot">' 
+        ? '<img src="perfilbot.png" class="foto-bot">' 
         : '<i class="bi bi-person-fill"></i>';
     
     const bubble = document.createElement('div');
@@ -80,7 +80,7 @@ chatForm.addEventListener('submit', async (e) => {
 
     const rowLoading = document.createElement('div');
     rowLoading.classList.add('message-row', 'bot', 'loading-row');
-    rowLoading.innerHTML = '<div class="avatar"><img src="assets/icones/perfilbot.png" class="foto-bot"></div><div class="message-bubble typing">Acessando base de dados da G.A.M.E.R...</div>';
+    rowLoading.innerHTML = '<div class="avatar"><img src="perfilbot.png" class="foto-bot"></div><div class="message-bubble typing">Acessando base de dados da G.A.M.E.R...</div>';
     
     chatBox.appendChild(rowLoading);
     chatBox.scrollTop = chatBox.scrollHeight;
