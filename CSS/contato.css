@@ -69,6 +69,12 @@ main {
     margin-top: 4vh;
     
 }
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 7.2vh;
+}
 @media screen and (max-width: 768px) {
     .asidebarrita {
         display: none;
