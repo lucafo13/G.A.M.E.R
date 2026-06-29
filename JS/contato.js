@@ -20,3 +20,14 @@ const msg = document.getElementById('msg').value
 )
     alert(`email enviado com o nome de ${nome} com sucesso`)
 })
+
+
+
+const nome = localStorage.getItem("nome")
+
+if(!nome){
+    document.getElementById('name').textContent = "Fazer Login"
+    document.getElementById('name').addEventListener('click', () => {window.location.href = '/loginn.html';})
+} else{
+document.getElementById('name').textContent = nome
+}

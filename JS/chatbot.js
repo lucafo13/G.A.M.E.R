@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const apiKey = import.meta.env.VITE_TECHNOBOTKEY;
+const apiKey = import.meta.env.VITE_TECHNOBOTKEY
 
 const contextoEmpresa = `
 Você é o TechnoBot, o cérebro digital e assistente virtual oficial da International G.A.M.E.R. 
@@ -97,3 +97,15 @@ chatForm.addEventListener('submit', async (e) => {
         userInput.focus();
     }
 });
+
+
+
+
+const nome = localStorage.getItem("nome")
+
+if(!nome){
+    document.getElementById('name').textContent = "Fazer Login"
+    document.getElementById('name').addEventListener('click', () => {window.location.href = '/loginn.html';})
+} else{
+document.getElementById('name').textContent = nome
+}
